@@ -37,7 +37,7 @@
         opacity: [0, 1]
     }, '-=200')
     .add({
-        targets: ['.s-intro__text', '.s-intro__about'],
+        targets: ['.s-intro_text', '.s-intro_about'],
         translateY: [100, 0],
         opacity: [0, 1],
         delay: anime.stagger(400)
@@ -439,5 +439,43 @@
         ssMoveTo();
 
     })();
+    const clientsSwiper = new Swiper('.clients', {
+        slidesPerView: 4,
+        spaceBetween: 4,
+        loop: true,
+        centeredSlides: true,          // Center the active slide
+        speed: 1000,                   // Increase slide transition speed for smoothness
+        autoplay: {
+          delay: 2000,                 // Change slide every 2 seconds
+          disableOnInteraction: false, // Continue autoplay even if the user interacts
+        },
+        effect: 'coverflow',           // Use coverflow effect to emphasize the central slide
+        coverflowEffect: {
+          rotate: 0,                   // No rotation
+          stretch: 0,                  // No stretch
+          depth: 100,                  // Adjust depth for a 3D effect
+          modifier: 2,                 // Increase modifier for a stronger effect
+          slideShadows: false,         // Remove slide shadows if you prefer a clean look
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          401: {
+            spaceBetween: 8
+          },
+          901: {
+            slidesPerView: 5,
+            spaceBetween: 10
+          },
+          1201: {
+            slidesPerView: 6,
+            spaceBetween: 10
+          }
+        }
+      });
+      
+      
 
 })(document.documentElement);
