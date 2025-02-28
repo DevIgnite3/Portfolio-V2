@@ -444,10 +444,10 @@
         spaceBetween: 4,
         loop: true,
         centeredSlides: true,          // Center the active slide
-        speed: 1000,                   // Increase slide transition speed for smoothness
+        speed: 2500,                   // Increase slide transition speed for smoothness
         autoplay: {
-          delay: 2000,                 // Change slide every 2 seconds
-          disableOnInteraction: false, // Continue autoplay even if the user interacts
+          delay: 1,                 // Change slide every 2 seconds
+          disableOnInteraction: true, // Continue autoplay even if the user interacts
         },
         effect: 'coverflow',           // Use coverflow effect to emphasize the central slide
         coverflowEffect: {
