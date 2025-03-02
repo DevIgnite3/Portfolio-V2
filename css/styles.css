@@ -3596,7 +3596,7 @@
  }
  
  .service-icon--ecommerce {
-     background-image : url(../images/icons/services/icon-ecommerce.svg);
+     background-image : url(../images/icons/services/icon-mobile-development.png);
  }
  
  /* ------------------------------------------------------------------- 
@@ -3668,7 +3668,6 @@
   * ------------------------------------------------------------------- */
  .s-works {
      padding-top    : var(--vspace-5);
-     padding-bottom : var(--vspace-4);
  }
  
  /* ------------------------------------------------------------------- 
@@ -3859,7 +3858,7 @@
  }
  
  .clients__slide img {
-     margin     : 0;
+     margin-bottom     : -150%;
      opacity    : 1;
      transform  : scale(0.9);
      transition : all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
