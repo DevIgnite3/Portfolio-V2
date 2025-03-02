@@ -3849,6 +3849,7 @@
      line-height  : calc(1.375 * var(--space));
      margin-left  : auto;
      margin-right : auto;
+     margin-top   : 0;
      text-align   : center;
  }
  
