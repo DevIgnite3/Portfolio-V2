@@ -211,6 +211,74 @@
                 }
             });
         }
+        const ssAnimateOnScroll = function() {
+            const blocks = document.querySelectorAll('[data-animate-block]');
+            window.addEventListener('scroll', animateOnScroll);
+          
+            function animateOnScroll() {
+              let scrollY = window.pageYOffset;
+          
+              blocks.forEach(function(current) {
+                const viewportHeight = window.innerHeight;
+                const triggerTop = (current.offsetTop + (viewportHeight * 0.2)) - viewportHeight;
+                const blockHeight = current.offsetHeight;
+                const blockSpace = triggerTop + blockHeight;
+                const inView = scrollY > triggerTop && scrollY <= blockSpace;
+                const isAnimated = current.classList.contains('ss-animated');
+          
+                if (inView && !isAnimated) {
+          
+                  // Check if this block is the "Why Choose Us" section
+                  if (current.classList.contains('why-choose-us') && !current.classList.contains('ss-animated-features')) {
+                    anime({
+                      targets: current.querySelectorAll('.why-choose-us__features .feature'),
+                      translateX: [-100, 0],
+                      opacity: [0, 1],
+                      delay: anime.stagger(200, { start: 200 }),
+                      duration: 800,
+                      easing: 'easeInOutCubic',
+                      begin: function() {
+                        current.classList.add('ss-animated-features');
+                      }
+                    });
+                  } else {
+                    // Default animation for other sections: vertical slide-in.
+                    anime({
+                      targets: current.querySelectorAll('[data-animate-el]'),
+                      opacity: [0, 1],
+                      translateY: [100, 0],
+                      delay: anime.stagger(200, { start: 200 }),
+                      duration: 800,
+                      easing: 'easeInOutCubic',
+                      begin: function() {
+                        current.classList.add('ss-animated');
+                      }
+                    });
+                  }
+          
+                  // Animate counters if this block contains about-stats (if applicable)
+                  if (current.classList.contains('about-stats')) {
+                    let counters = current.querySelectorAll('[data-animate-el] .stats__count');
+                    counters.forEach(function(counter, i) {
+                      let val = +counter.dataset.counter;
+                      let valSpan = counter.querySelector('span');
+                      valSpan.innerText = '0';
+                      setTimeout(function() {
+                        anime({
+                          targets: valSpan,
+                          innerText: [0, val],
+                          easing: 'linear',
+                          round: 1,
+                          duration: 2000
+                        });
+                      }, i * 200);
+                    });
+                  }
+                }
+              });
+            }
+          };
+          
 
     }; // end ssAnimateOnScroll
 

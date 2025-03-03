@@ -4343,3 +4343,235 @@
         outline: none;
         box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.25);
     }
+
+
+    /* ===================================================================
+ * # WHY CHOOSE US SECTION
+ * ------------------------------------------------------------------- */
+ .why-choose-us {
+    background-color: #000; /* Black background for contrast */
+    padding: var(--vspace-5) 0;
+    color: var(--color-text-dark);
+  }
+  
+  .why-choose-us .section-header {
+    margin-bottom: var(--vspace-3);
+  }
+  
+  .why-choose-us .text-pretitle {
+    color: var(--color-1);
+  }
+  
+  .why-choose-us .text-display-title {
+    font-size: var(--text-display-1);
+    margin-bottom: var(--vspace-3);
+  }
+  
+  /* Features container */
+  .why-choose-us__features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter);
+    justify-content: center;
+    margin-top: var(--vspace-4);
+    padding: 0 var(--gutter);
+  }
+  
+  /* Individual feature blocks */
+  .why-choose-us__features .feature {
+    flex: 1 1 calc(50% - var(--gutter));
+    background: rgba(255, 255, 255, 0.05); /* Subtle overlay */
+    padding: var(--vspace-1) var(--vspace-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: transform 0.3s ease;
+    margin-bottom: var(--vspace-2);
+    /* Set initial state for animation */
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  
+  .why-choose-us__features .feature:hover {
+    transform: translateY(-5px);
+  }
+  
+  .why-choose-us__features .feature h4 {
+    font-size: var(--text-lg);
+    color: var(--color-1);
+    margin-bottom: var(--vspace-0_5);
+  }
+  
+  .why-choose-us__features .feature p {
+    font-size: var(--text-md);
+    color: var(--color-text);
+    line-height: var(--vspace-1_25);
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 800px) {
+    .why-choose-us__features .feature {
+      flex: 1 1 100%;
+    }
+  }
+
+  
+
+ /* ===================================================================
+ * OUR SERVICES SECTION (Flip Card Version) – Updated for Larger Cards & Text
+ * ------------------------------------------------------------------- */
+.our-services {
+    background-color: hsl(0deg, 64.71%, 40%);
+    padding: var(--vspace-5) 0;
+    color: white;
+  }
+  
+  .our-services .section-header {
+    margin-bottom: var(--vspace-3);
+  }
+  
+  .our-services .text-pretitle {
+    color: #000; /* Pretitle in black */
+    font-weight: bold;
+  }
+  
+  .our-services .text-display-title {
+    font-size: var(--text-display-1);
+    margin-bottom: var(--vspace-3);
+    color: white;
+  }
+  
+  /* Container for the flip cards */
+  .our-services__list {
+    max-width: 1080px;
+    margin: 0 auto;
+    margin-top: var(--vspace-2_5);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter);
+    justify-content: center;
+    padding: 0 var(--gutter);
+  }
+  
+  /* Remove any default styling from the service-item container */
+  .our-services__list .service-item {
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  
+  /* =======================
+     Flip Card Styles (Updated)
+     ======================= */
+  
+  /* Flip Card Container – Increase min-height for a larger card */
+  .flip-card {
+    background-color: transparent;
+    width: 100%;
+    min-height: 400px; /* Increased from 300px to 400px */
+    perspective: 1000px; /* Enables 3D effect */
+  }
+  
+  /* Inner container that holds both the front and back faces */
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Flip the card on hover or when focused (for mobile accessibility) */
+  .flip-card:hover .flip-card-inner,
+  .flip-card:focus-within .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Front and Back Faces */
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem; /* Increased padding for more space */
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Front Face Styling */
+  .flip-card-front {
+    background: #fff;
+    color: #000;
+  }
+  
+  /* Service Title on Front Face – Increase font-size */
+  .flip-card-front h4 {
+    font-size: 1.5rem;  /* Increased from 1.25rem */
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    margin: 0;
+    position: relative;
+  }
+  
+  /* Accent underline for the title */
+  .flip-card-front h4::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.5rem;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--color-1);
+  }
+  
+  /* Back Face Styling – Increase font-size for description */
+  .flip-card-back {
+    background: #fff;
+    color: #333;
+    transform: rotateY(180deg);
+  }
+  
+  .flip-card-back p {
+    font-size: 1.125rem;  /* Increased from 1rem */
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 1rem;
+  }
+  
+  /* Responsive Adjustments: On smaller screens, each service takes full width */
+  @media screen and (max-width: 800px) {
+    .our-services__list .service-item {
+      flex: 1 1 100%;
+    }
+  }
+  /* =======================
+   Flip Card Back Face – Updated for Larger, Clear Text
+   ======================= */
+.flip-card-back {
+    background: #fff;          /* White background for high contrast */
+    color: #333;               /* Dark text for legibility */
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;             /* Increased padding for more space */
+  }
+  
+  .flip-card-back p {
+    font-size: 1.25rem;        /* Larger text size */
+    line-height: 1.6;          /* Comfortable line height */
+    margin: 0;
+    padding: 0 1rem;           /* Horizontal padding to avoid text touching edges */
+    color: #333;
+  }
