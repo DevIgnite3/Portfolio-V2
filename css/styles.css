@@ -4531,7 +4531,7 @@
  }
  
  /* Container for the flip cards */
- .our-services__list {
+ .services-list {
      max-width: 1080px;
      margin: 0 auto;
      margin-top: var(--vspace-2_5);
@@ -4543,7 +4543,7 @@
  }
  
  /* Remove default styling from service-item container */
- .our-services__list .service-item {
+ .services-list .service-item {
      padding: 0;
      background: transparent;
      border: none;
@@ -4673,7 +4673,7 @@
      }
  
      /* Mobile Gap/Padding Between Cards */
-     .our-services__list .service-item {
+     .services-list .service-item {
          /* Add extra vertical spacing between cards on mobile */
          margin-bottom: 1rem;
          /* <-- Adjust this value to increase or decrease spacing */
