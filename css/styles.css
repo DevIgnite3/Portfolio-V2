@@ -4742,13 +4742,21 @@
    }
    
    
-   @media screen and (max-width: 600px) {
-     .btn-ignite {
-       font-size: 1.25rem;
-       padding: 0.75rem 1.5rem;
-       margin-top: 1rem;
-     }
-   }
+   /* 1) For all small screens, lower the logo a bit */
+@media screen and (max-width: 900px) {
+    .s-header__logo {
+      top: 75%; /* or whatever offset you want */
+    }
+  }
+  
+  /* 2) Revert to the original top for iPhone/iOS */
+  @supports (-webkit-touch-callout: none) {
+    @media screen and (max-width: 900px) {
+      .s-header__logo {
+        top: 75%; /* your old “iPhone” position */
+      }
+    }
+  }
    
    
    
