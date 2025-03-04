@@ -4540,7 +4540,7 @@
   /* Service Title on Front Face */
   /* Adjust font-size below to change title size */
   .flip-card-front h4 {
-    font-size: 1.5rem;  /* <-- Adjust this value for the front title */
+    font-size: 2.5rem;  /* <-- Adjust this value for the front title */
     font-weight: 700;
     text-transform: uppercase;
     color: #000;
