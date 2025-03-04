@@ -4508,30 +4508,30 @@
  /* ===================================================================
   * OUR SERVICES SECTION (Flip Card Version) – Updated for Larger Cards & Text
   * ------------------------------------------------------------------- */
- .s-services {
+ .our-services {
      background-color: hsl(0deg, 64.71%, 40%);
      padding: var(--vspace-5) 0;
      color: white;
  }
  
- .s-services .section-header {
+ .our-services .section-header {
      margin-bottom: var(--vspace-3);
  }
  
- .s-services .text-pretitle {
+ .our-services .text-pretitle {
      color: #000;
      /* Pretitle in black */
      font-weight: bold;
  }
  
- .s-services .text-display-title {
+ .our-services .text-display-title {
      font-size: var(--text-display-1);
      margin-bottom: var(--vspace-3);
      color: white;
  }
  
  /* Container for the flip cards */
- .services-list {
+ .our-services__list {
      max-width: 1080px;
      margin: 0 auto;
      margin-top: var(--vspace-2_5);
@@ -4543,7 +4543,7 @@
  }
  
  /* Remove default styling from service-item container */
- .s-services .service-item {
+ .our-services__list .service-item {
      padding: 0;
      background: transparent;
      border: none;
@@ -4673,7 +4673,7 @@
      }
  
      /* Mobile Gap/Padding Between Cards */
-     .services-list .service-item {
+     .our-services__list .service-item {
          /* Add extra vertical spacing between cards on mobile */
          margin-bottom: 1rem;
          /* <-- Adjust this value to increase or decrease spacing */

@@ -583,7 +583,7 @@
         }
       
         // 4) Auto-scrolling loop
-        let scrollSpeed = 0.9; // pixels per frame
+        let scrollSpeed = 1; // pixels per frame
         function continuousScrollLoop() {
           // Increase scrollLeft
           scrollContainer.scrollLeft += scrollSpeed;
