@@ -4508,7 +4508,7 @@
  /* ===================================================================
   * OUR SERVICES SECTION (Flip Card Version) – Updated for Larger Cards & Text
   * ------------------------------------------------------------------- */
- .our-services {
+  .s-services {
      background-color: hsl(0deg, 64.71%, 40%);
      padding: var(--vspace-5) 0;
      color: white;
