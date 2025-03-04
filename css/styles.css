@@ -4654,14 +4654,35 @@
  /* =======================
       Mobile Adjustments (For screens 600px and below)
       ======================= */
-      @media screen and (max-width: 1300px) {
+      @media screen and (max-width: 600px) {
 
-        /* Make the card taller on mobile */
-        .flip-card {
-            min-height: 320px; /* Increase this to your preferred height */
+        /* 1) Ensure only one column on small screens. */
+        .our-services__list {
+          flex-direction: column; /* stack the flip cards vertically */
         }
-    }
-   
+      
+        .our-services__list .column {
+          width: 100% !important; 
+          /* override any leftover .block-* or .column rules 
+             that might force 2 columns */
+        }
+      
+        /* 2) Make each flip-card taller on mobile. */
+        .flip-card {
+          min-height: 400px !important;
+        }
+      
+        /* 3) Let the front/back faces auto-size 
+           instead of forcing them to match the parent's height. */
+        .flip-card-inner {
+          height: auto !important;
+        }
+        .flip-card-front,
+        .flip-card-back {
+          height: auto !important;
+        }
+      }
+      
  
    /* =======================
     COOL ANIMATED BUTTON
