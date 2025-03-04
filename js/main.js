@@ -30,17 +30,17 @@
         targets: '.s-header',
         translateY: [-100, 0],
         opacity: [0, 1]
-    }, '-=150')
+    }, '-=50')
+    .add({
+        targets: '.s-intro__bg',
+        opacity: [0, 1],
+        duration: 1000,
+    }, '-=50')
     .add({
         targets: ['.s-intro_text', '.s-intro_about'],
         translateY: [100, 0],
         opacity: [0, 1],
         delay: anime.stagger(400)
-    })
-    .add({
-        targets: '.s-intro__bg',
-        opacity: [0, 1],
-        duration: 1000,
     })
     .add({
         targets: ['.s-intro__scroll-down'],
