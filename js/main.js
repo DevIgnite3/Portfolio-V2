@@ -539,6 +539,91 @@
         }
       });
       
+/* Handler for carousel auto scroll
+    * ------------------------------------------------------ */
+      document.addEventListener('DOMContentLoaded', function() {
+        // 1) Select the container & gather the original slides
+        const scrollContainer = document.querySelector('.tech-scroll-container');
+        if (!scrollContainer) return;
+      
+        const originalSlides = Array.from(scrollContainer.querySelectorAll('.tech-slide'));
+      
+        // 2) Duplicate the slides so we have 2 sets in one container
+        //    This ensures there's "room" to loop seamlessly.
+        originalSlides.forEach(slide => {
+          const clone = slide.cloneNode(true);
+          scrollContainer.appendChild(clone);
+        });
+      
+        // After duplication, total slides = originalSlides.length * 2
+        // We'll measure the "width" of the first half to know when to jump back
+      
+        let contentWidth = 0;   // width of the original set
+        let isReady = false;    // we'll set true once we measure the correct width
+      
+        // 3) Scale-in-center function (same center “zoom” as before)
+        function scaleCenterSlides() {
+          const containerRect = scrollContainer.getBoundingClientRect();
+          const containerCenterX = containerRect.left + containerRect.width / 2;
+      
+          // All slides (including duplicates)
+          const allSlides = scrollContainer.querySelectorAll('.tech-slide');
+          allSlides.forEach(slide => {
+            const slideRect = slide.getBoundingClientRect();
+            const slideCenterX = slideRect.left + slideRect.width / 2;
+            const distance = Math.abs(containerCenterX - slideCenterX);
+      
+            // Tweak for bigger or smaller effect
+            const maxScale = 1.4;
+            const scaleFalloff = 0.004;
+            const scale = Math.max(1, maxScale - distance * scaleFalloff);
+      
+            slide.style.transform = `scale(${scale})`;
+          });
+        }
+      
+        // 4) Auto-scrolling loop
+        let scrollSpeed = 0.9; // pixels per frame
+        function continuousScrollLoop() {
+          // Increase scrollLeft
+          scrollContainer.scrollLeft += scrollSpeed;
+      
+          // If we've scrolled beyond the original set's width, jump back
+          if (isReady) {
+            if (scrollContainer.scrollLeft >= contentWidth) {
+              scrollContainer.scrollLeft -= contentWidth;
+            }
+          }
+      
+          // Also update the center scaling
+          scaleCenterSlides();
+      
+          // Loop forever
+          requestAnimationFrame(continuousScrollLoop);
+        }
+      
+        // 5) Wait until images are loaded to measure widths, then start
+        window.addEventListener('load', () => {
+          // measure the width of the first "set" of slides
+          // one way: sum widths of the original slides
+          // but easier to measure them in DOM since they are contiguous
+          let totalWidthFirstSet = 0;
+          // gather only the first set (which is the original number of slides)
+          const firstSet = Array.from(scrollContainer.querySelectorAll('.tech-slide'))
+                                .slice(0, originalSlides.length);
+      
+          firstSet.forEach(slide => {
+            totalWidthFirstSet += slide.getBoundingClientRect().width + 20.5; 
+            // +2 or so for gap differences, if any. Tweak if needed.
+          });
+      
+          contentWidth = Math.ceil(totalWidthFirstSet);
+          isReady = true;
+      
+          // Start the infinite scroll + scale
+          requestAnimationFrame(continuousScrollLoop);
+        });
+      });
       
 
 })(document.documentElement);
