@@ -2942,6 +2942,7 @@ img.u-pull-left {
     vertical-align: bottom;
 }
 
+
 /* --------------------------------------------------------------------
   * ## main navigation
   * -------------------------------------------------------------------- */
@@ -3109,6 +3110,17 @@ img.u-pull-left {
       height: auto;
     }
   }
+  @media screen and (max-width: 414px) {
+    .s-header__logo {
+      left: 1rem; /* or 0; adjust to suit */
+      top: 1rem;  /* if it’s absolutely positioned */
+    }
+    
+    .s-header__logo img {
+      max-width: 90px; /* shrink further on smaller screens */
+    }
+  }
+  
   
 
 @media screen and (max-width: 900px) {
