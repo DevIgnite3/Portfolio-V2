@@ -3119,28 +3119,25 @@ img.u-pull-left {
     }
   }
   
- 
-  
-  
-
-@media screen and (max-width: 900px) {
+  @media screen and (max-width: 900px) {
     .s-header {
         display: block;
-        border: none;
+        border-bottom: 1px solid var(--color-border);
         background-color: var(--color-body);
+        /* or any other color you prefer, e.g. background-color: #000; */
     }
 
- 
     .s-header__block {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: var(--header-height); /* or remove entirely for auto-height */
-      }
-      .s-header__logo,
-      .s-header__menu-toggle {
-        position: static; /* remove any absolute positioning */
-      }
+        height: var(--header-height);
+    }
+
+    .s-header__logo,
+    .s-header__menu-toggle {
+        position: static;
+    }
       
 
     
