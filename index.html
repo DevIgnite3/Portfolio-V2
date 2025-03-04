@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="js ss-loaded">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>DevIgnite</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <!--test-->
   <!--- basic page needs
     ================================================== -->
   <meta charset="utf-8">
 
-  <title>DevIgnite</title>
+  <title>DevIgnite | Innovative Web & App Development Solutions</title>
 
   <meta name="Description"
     content="DevIgnite - A team of skilled developers specializing in web and app development, UI/UX, and branding.">
@@ -19,6 +19,21 @@
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js');
   </script>
+
+  <!-- SHARING
+    ================================================== -->
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="DevIgnite | Innovative Web & App Development Solutions" />
+  <meta property="og:description" content="A team of skilled developers who create cutting-edge digital experiences for your brand." />
+  <meta property="og:image" content="https://devignite.co.za/images/social-share.jpg" />
+  <meta property="og:url" content="https://devignite.co.za/" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DevIgnite | Innovative Web & App Development Solutions" />
+  <meta name="twitter:description" content="A team of skilled developers who create cutting-edge digital experiences for your brand." />
+  <meta name="twitter:image" content="https://devignite.co.za/images/social-share.jpg" />
 
   <!-- CSS
     ================================================== -->
@@ -31,6 +46,28 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="manifest" href="site.webmanifest">
 
+  <!-- Structured Data
+    ================================================== -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DevIgnite",
+      "url": "https://devignite.co.za/",
+      "logo": "https://devignite.co.za/images/logo.png",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "email": "devignite03@gmail.com",
+        "telephone": "+27 71 549 1278",
+        "contactType": "customer service"
+      }],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Johannesburg",
+        "addressCountry": "ZA"
+      }
+    }
+    </script>
 </head>
 
 <body id="top" data-new-gr-c-s-check-loaded="14.1223.0" data-gr-ext-installed="">
@@ -45,47 +82,47 @@
   <div class="s-pagewrap">
     <!-- # site header 
         ================================================== -->
-        <header class="s-header" style="transform: translateY(0px); opacity: 1;" role="navigation">
+    <header class="s-header" style="transform: translateY(0px); opacity: 1;" role="navigation">
 
-          <div class="s-header__block">
-            <div class="s-header__logo">
-              <a class="logo" href="index.html">
-                <img src="images/logo.png" alt="Homepage">
-              </a>
-            </div>
-    
-            <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
-          </div> <!-- end s-header__block -->
-    
-          <div class="row s-header__nav-wrap">
-            <nav class="s-header__nav">
-              <ul>
-                <li class="current"><a href="#intro" class="smoothscroll">Intro</a></li>
-                <li><a href="#services" class="smoothscroll">What We Do</a></li>
-                <li><a href="#why-choose-us" class="smoothscroll">Why Choose Us</a></li>
-                <li><a href="#technologies" class="smoothscroll">Our Technologies</a></li>
-                <li><a href="#team" class="smoothscroll">Meet the Team</a></li>
-                <li><a href="#contact" class="smoothscroll">Get In Touch</a></li>
-              </ul>
-            </nav>
-          </div> <!-- end s-header__nav-wrap -->
-    
-        </header> <!-- end s-header -->
+      <div class="s-header__block">
+        <div class="s-header__logo">
+          <a class="logo" href="index.html">
+            <img src="images/logo.png" alt="DevIgnite company logo">
+          </a>
+        </div>
+
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+      </div> <!-- end s-header__block -->
+
+      <div class="row s-header__nav-wrap">
+        <nav class="s-header__nav" aria-label="Main navigation">
+          <ul>
+            <li class="current"><a href="#intro" class="smoothscroll">Intro</a></li>
+            <li><a href="#services" class="smoothscroll">What We Do</a></li>
+            <li><a href="#why-choose-us" class="smoothscroll">Why Choose Us</a></li>
+            <li><a href="#technologies" class="smoothscroll">Our Technologies</a></li>
+            <li><a href="#team" class="smoothscroll">Meet the Team</a></li>
+            <li><a href="#contact" class="smoothscroll">Get In Touch</a></li>
+          </ul>
+        </nav>
+      </div> <!-- end s-header__nav-wrap -->
+
+    </header> <!-- end s-header -->
 
     <!-- # intro 
         ================================================== -->
-    <section id="intro" class="s-intro target-section">
+    <section id="intro" class="s-intro target-section" aria-label="Introduction">
 
       <div class="row">
         <div class="column">
           <div class="s-intro__top-block">
             <span class="s-intro__bg">
               <video autoplay muted loop playsinline>
-                <source src="images/intro-bg.webm" type="video/webm">
+                <source src="images/intro-bg.webm" type="video/webm" alt="Background Video">
                 <!-- You could add another <source> here as a fallback, e.g. MP4 -->
               </video>
             </span>
-            
+
             <h1 class="s-intro__text" style="transform: translateY(0px); opacity: 1;">
               We're a creative group <br>
               of people who design <br>
@@ -108,7 +145,7 @@
 
       <div class="row row-x-center s-intro__about-wrap">
         <div class="column s-intro__about" style="transform: translateY(0px); opacity: 1;">
-          <h2 class="s-intro__about-title">Hello, We Are DevIgnite.</h2>
+          <h2 class="s-intro__about-title">Introducing DevIgnite: Your Partner in Innovation</h2>
 
           <p>
             We are a dynamic freelance team of passionate developers who believe in creating innovative,
@@ -167,160 +204,160 @@
 
     </section> <!-- end s-intro -->
 
-  <!-- # services – Flip Card Version -->
-<section id="services" class="s-services target-section">
-  <div class="row section-header has-bottom-sep">
-    <div class="column lg-12">
-      <h3 class="text-pretitle">What We Do</h3>
-      <h1 class="text-display-title">
-        We’ve got everything you <br>
-        need to launch and grow <br>
-        your business
-      </h1>
-    </div>
-  </div>
+    <!-- # services – Flip Card Version -->
+    <section id="services" class="s-services target-section" aria-label="Our Services">
+      <div class="row section-header has-bottom-sep">
+        <div class="column lg-12">
+          <h3 class="text-pretitle">What We Do</h3>
+          <h1 class="text-display-title">
+            We’ve got everything you <br>
+            need to launch and grow <br>
+            your business
+          </h1>
+        </div>
+      </div>
 
-  <!-- Removed block-lg-one-half block-tab-whole to avoid 2 columns on mobile -->
-  <div class="row services-list" data-animate-block="">
-    
-    <!-- Service 1: Product Design -->
-    <div class="column service-item" data-animate-el="">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <!-- Front Face -->
-          <div class="flip-card-front">
-            <div class="service-icon-block">
-              <span class="service-icon service-icon--product-design"></span>
+      <!-- Removed block-lg-one-half block-tab-whole to avoid 2 columns on mobile -->
+      <div class="row services-list" data-animate-block="">
+
+        <!-- Service 1: Product Design -->
+        <div class="column service-item" data-animate-el="">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <!-- Front Face -->
+              <div class="flip-card-front">
+                <div class="service-icon-block">
+                  <span class="service-icon service-icon--product-design"></span>
+                </div>
+                <h4>Product Design</h4>
+              </div>
+              <!-- Back Face -->
+              <div class="flip-card-back">
+                <p>
+                  We craft intuitive and visually stunning product designs that elevate your brand.
+                  Our team transforms ideas into engaging user experiences with seamless functionality.
+                </p>
+              </div>
             </div>
-            <h4>Product Design</h4>
-          </div>
-          <!-- Back Face -->
-          <div class="flip-card-back">
-            <p>
-              We craft intuitive and visually stunning product designs that elevate your brand.
-              Our team transforms ideas into engaging user experiences with seamless functionality.
-            </p>
           </div>
         </div>
-      </div>
-    </div>
-    
-    <!-- Service 2: Branding -->
-    <div class="column service-item" data-animate-el="">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <!-- Front Face -->
-          <div class="flip-card-front">
-            <div class="service-icon-block">
-              <span class="service-icon service-icon--branding"></span>
+
+        <!-- Service 2: Branding -->
+        <div class="column service-item" data-animate-el="">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <!-- Front Face -->
+              <div class="flip-card-front">
+                <div class="service-icon-block">
+                  <span class="service-icon service-icon--branding"></span>
+                </div>
+                <h4>Branding</h4>
+              </div>
+              <!-- Back Face -->
+              <div class="flip-card-back">
+                <p>
+                  Your brand is your identity. We create cohesive branding strategies—from logos to full
+                  guidelines—that leave a lasting impression.
+                </p>
+              </div>
             </div>
-            <h4>Branding</h4>
-          </div>
-          <!-- Back Face -->
-          <div class="flip-card-back">
-            <p>
-              Your brand is your identity. We create cohesive branding strategies—from logos to full
-              guidelines—that leave a lasting impression.
-            </p>
           </div>
         </div>
-      </div>
-    </div>
-    
-    <!-- Service 3: Frontend Development -->
-    <div class="column service-item" data-animate-el="">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <!-- Front Face -->
-          <div class="flip-card-front">
-            <div class="service-icon-block">
-              <span class="service-icon service-icon--frontend"></span>
+
+        <!-- Service 3: Frontend Development -->
+        <div class="column service-item" data-animate-el="">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <!-- Front Face -->
+              <div class="flip-card-front">
+                <div class="service-icon-block">
+                  <span class="service-icon service-icon--frontend"></span>
+                </div>
+                <h4>Frontend Development</h4>
+              </div>
+              <!-- Back Face -->
+              <div class="flip-card-back">
+                <p>
+                  We build fast, responsive, and interactive web experiences using cutting-edge technologies
+                  to ensure a seamless user experience.
+                </p>
+              </div>
             </div>
-            <h4>Frontend Development</h4>
-          </div>
-          <!-- Back Face -->
-          <div class="flip-card-back">
-            <p>
-              We build fast, responsive, and interactive web experiences using cutting-edge technologies
-              to ensure a seamless user experience.
-            </p>
           </div>
         </div>
-      </div>
-    </div>
-    
-    <!-- Service 4: UX Research -->
-    <div class="column service-item" data-animate-el="">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <!-- Front Face -->
-          <div class="flip-card-front">
-            <div class="service-icon-block">
-              <span class="service-icon service-icon--research"></span>
+
+        <!-- Service 4: UX Research -->
+        <div class="column service-item" data-animate-el="">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <!-- Front Face -->
+              <div class="flip-card-front">
+                <div class="service-icon-block">
+                  <span class="service-icon service-icon--research"></span>
+                </div>
+                <h4>UX Research</h4>
+              </div>
+              <!-- Back Face -->
+              <div class="flip-card-back">
+                <p>
+                  We conduct in-depth research to analyze user behavior, ensuring our solutions truly
+                  resonate with your audience.
+                </p>
+              </div>
             </div>
-            <h4>UX Research</h4>
-          </div>
-          <!-- Back Face -->
-          <div class="flip-card-back">
-            <p>
-              We conduct in-depth research to analyze user behavior, ensuring our solutions truly
-              resonate with your audience.
-            </p>
           </div>
         </div>
-      </div>
-    </div>
-    
-    <!-- Service 5: Illustration -->
-    <div class="column service-item" data-animate-el="">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <!-- Front Face -->
-          <div class="flip-card-front">
-            <div class="service-icon-block">
-              <span class="service-icon service-icon--illustration"></span>
+
+        <!-- Service 5: Illustration -->
+        <div class="column service-item" data-animate-el="">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <!-- Front Face -->
+              <div class="flip-card-front">
+                <div class="service-icon-block">
+                  <span class="service-icon service-icon--illustration"></span>
+                </div>
+                <h4>Illustration</h4>
+              </div>
+              <!-- Back Face -->
+              <div class="flip-card-back">
+                <p>
+                  Our custom illustrations bring your brand to life in a unique and engaging way, enhancing
+                  your digital platforms with a creative touch.
+                </p>
+              </div>
             </div>
-            <h4>Illustration</h4>
-          </div>
-          <!-- Back Face -->
-          <div class="flip-card-back">
-            <p>
-              Our custom illustrations bring your brand to life in a unique and engaging way, enhancing
-              your digital platforms with a creative touch.
-            </p>
           </div>
         </div>
-      </div>
-    </div>
-    
-    <!-- Service 6: Mobile Development -->
-    <div class="column service-item" data-animate-el="">
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <!-- Front Face -->
-          <div class="flip-card-front">
-            <div class="service-icon-block">
-              <span class="service-icon service-icon--ecommerce"></span>
+
+        <!-- Service 6: Mobile Development -->
+        <div class="column service-item" data-animate-el="">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <!-- Front Face -->
+              <div class="flip-card-front">
+                <div class="service-icon-block">
+                  <span class="service-icon service-icon--ecommerce"></span>
+                </div>
+                <h4>Mobile Development</h4>
+              </div>
+              <!-- Back Face -->
+              <div class="flip-card-back">
+                <p>
+                  We design and develop mobile apps that are fast, scalable, and tailored to your needs,
+                  ensuring an intuitive interface and seamless functionality.
+                </p>
+              </div>
             </div>
-            <h4>Mobile Development</h4>
-          </div>
-          <!-- Back Face -->
-          <div class="flip-card-back">
-            <p>
-              We design and develop mobile apps that are fast, scalable, and tailored to your needs,
-              ensuring an intuitive interface and seamless functionality.
-            </p>
           </div>
         </div>
-      </div>
-    </div>
-    
-  </div> <!-- end .services-list -->
-</section>
+
+      </div> <!-- end .services-list -->
+    </section>
 
 
     <!-- NEW: Why Choose Us SECTION -->
-    <section id="why-choose-us" class="why-choose-us target-section" data-animate-block>
+    <section id="why-choose-us" class="why-choose-us target-section" data-animate-block aria-label="Why Choose Us">
       <div class="row section-header has-bottom-sep">
         <div class="column lg-12">
           <h3 class="text-pretitle">Why Choose Us</h3>
@@ -367,7 +404,7 @@
     </section>
 
     <!-- ==================== Our Technologies Section ==================== -->
-    <section id="technologies" class="s-services target-section">
+    <section id="technologies" class="s-services target-section" data-animate-block aria-label="Our Technologies">
       <div class="column lg-12">
         <h1 class="text-display-title" style="justify-self: center;">
           Our Technologies
@@ -440,7 +477,7 @@
 
   </section>
 
-  <section id="team" class="s-works target-section">
+  <section id="team" class="s-works target-section" aria-label="Meet the team">
 
     <div class="row section-header has-bottom-sep">
       <div class="column lg-12">
@@ -534,9 +571,9 @@
 
   <!-- ## contact
         ================================================== -->
-  <section id="contact" class="s-contact target-section">
+  <section id="contact" class="s-contact target-section" data-animate-block aria-label="Get in touch">
 
-    <div class="row section-header section-header--dark" "="">
+    <div class="row section-header section-header--dark">
                 <div class=" column lg-12">
       <h3 class="text-pretitle">Get In Touch</h3>
       <h1 class="text-display-title">
@@ -579,7 +616,7 @@
       });
     </script>
 
-    <footer class="s-footer">
+    <footer class="s-footer" aria-label="footer">
 
       <div class="row s-footer__top">
         <div class="column lg-5 md-8 stack-on-700 s-footer__block contact-address">
@@ -669,7 +706,7 @@
     ================================================== -->
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
-
+    
 
 </body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration>
 
