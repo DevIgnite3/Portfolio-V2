@@ -1,8 +1,3 @@
-/* ===================================================================
- * Tyndale 1.0.0 - Main JS
- *
- * ------------------------------------------------------------------- */
-
 (function(html) {
 
     'use strict';
@@ -18,7 +13,7 @@
     .add({
         targets: '#loader',
         opacity: 0,
-        duration: 1000,
+        duration: 0.5,
         begin: function(anim) {
             window.scrollTo(0, 0);
         }
@@ -35,7 +30,7 @@
         targets: '.s-header',
         translateY: [-100, 0],
         opacity: [0, 1]
-    }, '-=200')
+    }, '-=150')
     .add({
         targets: ['.s-intro_text', '.s-intro_about'],
         translateY: [100, 0],
