@@ -2831,6 +2831,9 @@ img.u-pull-left {
     }
 }
 
+  
+  
+
 @media screen and (max-width: 800px) {
     .section-header {
         max-width: 600px;
@@ -3092,12 +3095,21 @@ img.u-pull-left {
   * responsive:
   * site-header
   * ------------------------------------------------------------------- */
-@media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1300px) {
+    /* reduce nav font, spacing, and/or letter spacing */
     .s-header__nav a {
-        font-size: 9px;
-        padding: 0 2rem;
+      font-size: 9px;
+      padding: 0 1.2rem;
+      letter-spacing: 0.2em; /* instead of .4em */
     }
-}
+  
+    /* shrink the logo as well */
+    .s-header__logo img {
+      max-width: 120px;
+      height: auto;
+    }
+  }
+  
 
 @media screen and (max-width: 900px) {
     .s-header {
@@ -3106,6 +3118,7 @@ img.u-pull-left {
         background-color: transparent;
     }
 
+ 
     .s-header__block {
         width: 100%;
         height: var(--header-height);
