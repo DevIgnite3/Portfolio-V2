@@ -627,3 +627,28 @@
       
 
 })(document.documentElement);
+
+const ssAnimateButton = function() {
+    const btn = document.querySelector('.btn-ignite');
+    if (!btn) return;
+    
+    // Check if the button is in the viewport
+    const rect = btn.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0 && !btn.classList.contains('btn-animated')) {
+      anime({
+        targets: btn,
+        opacity: [0, 1],
+        translateY: [50, 0],
+        duration: 800,
+        easing: 'easeInOutCubic',
+        begin: function() {
+          btn.classList.add('btn-animated');
+        }
+      });
+    }
+  };
+  
+  // Run the animation on scroll and on load
+  window.addEventListener('scroll', ssAnimateButton);
+  window.addEventListener('load', ssAnimateButton);
+  

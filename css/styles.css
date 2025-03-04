@@ -4660,3 +4660,69 @@ img.u-pull-left {
     }
 
 }
+
+  /* =======================
+   COOL ANIMATED BUTTON
+   ======================= */
+.btn-ignite {
+    display: inline-block;
+    font-family: var(--font-2);
+    font-weight: 700;
+    font-size: 1.75rem; /* Text size */
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(90deg, #A82424 0%, #383939 100%);
+   
+    padding: 1rem 2rem;
+    margin-top: 1.5rem;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none; /* Remove underline */
+  }
+  .s-intro__contact-btn-wrapper {
+    text-align: center;       /* Centers the button horizontally */
+    margin-top: 2rem;         /* Space above the button; adjust as needed */
+  }
+  
+  
+  /* Hover effect: gradient flip, slight lift, and glow */
+  .btn-ignite:hover {
+    background: linear-gradient(90deg, #383939 0%, #ff6a00d1 100%);
+
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(255, 106, 0, 0.3);
+  }
+  
+  /* Subtle "shine" effect sliding across on hover */
+  .btn-ignite::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-45deg);
+    transition: left 0.5s ease;
+  }
+  
+  .btn-ignite:hover::before {
+    left: 100%;
+  }
+  .s-intro__contact-btn-wrapper {
+    text-align: center;       /* Centers the button horizontally */
+    margin-top: 2rem;         /* Space above the button; adjust as needed */
+  }
+  
+  
+  @media screen and (max-width: 600px) {
+    .btn-ignite {
+      font-size: 1.25rem;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+    }
+  }
+  
+  
