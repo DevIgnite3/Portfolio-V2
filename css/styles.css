@@ -4505,186 +4505,170 @@
  
  
  
- /* ===================================================================
-  * OUR SERVICES SECTION (Flip Card Version) – Updated for Larger Cards & Text
-  * ------------------------------------------------------------------- */
-  .s-services {
-     background-color: hsl(0deg, 64.71%, 40%);
-     padding: var(--vspace-5) 0;
-     color: white;
- }
- 
- .our-services .section-header {
-     margin-bottom: var(--vspace-3);
- }
- 
- .our-services .text-pretitle {
-     color: #000;
-     /* Pretitle in black */
-     font-weight: bold;
- }
- 
- .our-services .text-display-title {
-     font-size: var(--text-display-1);
-     margin-bottom: var(--vspace-3);
-     color: white;
- }
- 
- /* Container for the flip cards */
- .services-list {
-     max-width: 1080px;
-     margin: 0 auto;
-     margin-top: var(--vspace-2_5);
-     display: flex;
-     flex-wrap: wrap;
-     gap: var(--gutter);
-     justify-content: center;
-     padding: 0 var(--gutter);
- }
- 
- /* Remove default styling from service-item container */
- .services-list .service-item {
-     padding: 0;
-     background: transparent;
-     border: none;
-     box-shadow: none;
- }
- 
- /* =======================
-      Flip Card Styles – Base (Desktop and Larger Screens)
-      ======================= */
- 
- /* Flip Card Container */
- /* Adjust min-height below to change overall card size */
- .flip-card {
-     background-color: transparent;
-     width: 100%;
-     min-height: 250px;
-     /* <-- Change this value to make the card smaller or larger */
-     perspective: 1000px;
-     /* Enables 3D effect */
- }
- 
- /* Inner container holding front and back faces */
- .flip-card-inner {
-     position: relative;
-     width: 100%;
-     height: 100%;
-     text-align: center;
-     transition: transform 0.6s;
-     transform-style: preserve-3d;
- }
- 
- /* Flip effect on hover/focus (also works on mobile when tapped) */
- .flip-card:hover .flip-card-inner,
- .flip-card:focus-within .flip-card-inner {
-     transform: rotateY(180deg);
- }
- 
- /* Both Faces (Front & Back) of the Card */
- .flip-card-front,
- .flip-card-back {
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     backface-visibility: hidden;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-     padding: 2rem;
-     /* <-- Adjust inner spacing here */
-     border: 1px solid #e0e0e0;
-     border-radius: var(--border-radius);
-     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
- }
- 
- /* Front Face Styling */
- .flip-card-front {
-     background: #fff;
-     color: #000;
- }
- 
- /* Service Title on Front Face */
- /* Adjust font-size below to change title size */
- .flip-card-front h4 {
-     font-size: 1.75rem;
-     /* <-- Adjust this value for the front title */
-     font-weight: 700;
-     text-transform: uppercase;
-     color: #000;
-     margin: 0;
-     position: relative;
- }
- 
- /* Accent Underline for Front Title */
- .flip-card-front h4::after {
-     content: "";
-     position: absolute;
-     left: 50%;
-     bottom: -0.5rem;
-     transform: translateX(-50%);
-     width: 50px;
-     /* <-- Change this width to adjust the underline length */
-     height: 2px;
-     /* <-- Change this height for a thicker or thinner underline */
-     background: var(--color-1);
- }
- 
- /* Back Face Styling */
- /* Adjust font-size below to change backside text size */
- .flip-card-back {
-     background: #fff;
-     color: #333;
-     transform: rotateY(180deg);
-     padding: 2rem;
-     /* Controls inner spacing on the backside */
- }
- 
- .flip-card-back p {
-     font-size: 2.125rem;
-     /* <-- Adjust this value for the back text size */
-     line-height: 1.5;
-     margin: 0;
-     padding: 0 1rem;
-     /* <-- Adjust horizontal padding if needed */
-     color: #333;
- }
- 
- /* =======================
-      Mobile Adjustments (For screens 600px and below)
-      ======================= */
- @media screen and (max-width: 600px) {
-     .flip-card {
-         min-height: 200px;
-         /* <-- Reduce overall card height on mobile */
-     }
- 
-     .flip-card-front h4 {
-         font-size: 1.25rem;
-         /* <-- Smaller title on mobile; adjust as needed */
-     }
- 
-     .flip-card-back p {
-         font-size: 1.25rem;
-         /* <-- Smaller backside text on mobile; adjust as needed */
-         padding: 0 2.5rem;
-         /* <-- Less horizontal padding on mobile */
-     }
- 
-     /* Mobile Gap/Padding Between Cards */
-     .services-list .service-item {
-         /* Add extra vertical spacing between cards on mobile */
-         margin-bottom: 1rem;
-         /* <-- Adjust this value to increase or decrease spacing */
-     }
- 
-     .services-list .column {
-         margin-bottom: 1rem;
-         /* Adjust as needed */
-     }
- 
- }
+/* ===================================================================
+ * OUR SERVICES SECTION (Flip Card Version) – Updated for Larger Cards & Text
+ * ------------------------------------------------------------------- */
+ .s-services {
+    /* The background + padding you wanted originally */
+    background-color: hsl(0deg, 64.71%, 40%);
+    padding: var(--vspace-5) 0;
+    color: white;
+}
+
+.s-services .section-header {
+    margin-bottom: var(--vspace-3);
+}
+
+.s-services .text-pretitle {
+    color: #000; /* Pretitle in black */
+    font-weight: bold;
+}
+
+.s-services .text-display-title {
+    font-size: var(--text-display-1);
+    margin-bottom: var(--vspace-3);
+    color: white;
+}
+
+/* Container for the flip cards */
+.services-list {
+    max-width: 1080px;
+    margin: 0 auto;
+    margin-top: var(--vspace-2_5);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter);
+    justify-content: center;
+    padding: 0 var(--gutter);
+}
+
+/* Remove default styling from .service-item container */
+.services-list .service-item {
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* =======================
+ * Flip Card Styles – Base (Desktop and Larger Screens)
+ * ======================= */
+
+/* Flip Card Container */
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    min-height: 250px; /* Adjust for bigger/smaller cards */
+    perspective: 1000px; /* Enables 3D effect */
+}
+
+/* Inner container holding front and back faces */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Flip on hover or focus */
+.flip-card:hover .flip-card-inner,
+.flip-card:focus-within .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Both Faces (Front & Back) */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Front Face */
+.flip-card-front {
+    background: #fff;
+    color: #000;
+}
+
+/* Service Title (Front) */
+.flip-card-front h4 {
+    font-size: 1.75rem; /* Adjust as needed */
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+}
+
+/* Accent Underline */
+.flip-card-front h4::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -0.5rem;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--color-1);
+}
+
+/* Back Face */
+.flip-card-back {
+    background: #fff;
+    color: #333;
+    transform: rotateY(180deg);
+}
+
+/* Adjust backside text size */
+.flip-card-back p {
+    font-size: 2.125rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0 1rem;
+    color: #333;
+}
+
+/* =======================
+ * Mobile Adjustments (Under 600px)
+ * ======================= */
+@media screen and (max-width: 600px) {
+
+    /* Reduce overall card height on mobile */
+    .flip-card {
+        min-height: 200px;
+    }
+
+    /* Smaller front title */
+    .flip-card-front h4 {
+        font-size: 1.25rem;
+    }
+
+    /* Smaller backside text + reduced padding */
+    .flip-card-back p {
+        font-size: 1.25rem;
+        padding: 0 2.5rem;
+    }
+
+    /* Extra vertical spacing between cards on mobile */
+    .services-list .service-item {
+        margin-bottom: 1rem;
+    }
+
+    .services-list .column {
+        margin-bottom: 1rem;
+    }
+}
+
  
    /* =======================
     COOL ANIMATED BUTTON
