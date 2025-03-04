@@ -4654,11 +4654,11 @@
  /* =======================
       Mobile Adjustments (For screens 600px and below)
       ======================= */
- @media screen and (max-width: 600px) {
-     .flip-card {
-         min-height: 200px;
-         /* <-- Reduce overall card height on mobile */
-     }
+      @media screen and (max-width: 600px) {
+        .flip-card {
+          min-height: auto; /* let the content define height */
+        }
+      }
  
      .flip-card-front h4 {
          font-size: 1.25rem;
