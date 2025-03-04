@@ -4608,13 +4608,13 @@
 .btn-ignite {
     display: inline-block;
     font-family: var(--font-2);
-    font-weight: 1700;
+    font-weight: 700;
     font-size: 1.75rem; /* Text size */
     text-transform: uppercase;
     color: #fff;
     background: linear-gradient(90deg, #A82424 0%, #383939 100%);
    
-    padding: 1rem 2rem;
+    padding: 1rem 6rem;
     margin-top: 1.5rem;
     border-radius: 50px;
     position: relative;
