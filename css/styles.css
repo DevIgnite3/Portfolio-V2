@@ -2924,7 +2924,7 @@
  .s-header__logo {
      z-index: 3;
      position: absolute;
-     top: 5rem;
+     top: 0.5rem;
      left: 2rem;
  }
  
@@ -2938,7 +2938,7 @@
  
  .s-header__logo img {
      width: var(--logo-width);
-     margin: -4.5rem 0;
+   
      vertical-align: bottom;
  }
  
@@ -4741,13 +4741,5 @@
      margin-top: 2rem;         /* Space above the button; adjust as needed */
    }
    
-   
-   @media screen and (max-width: 600px) {
-     .btn-ignite {
-       font-size: 1.25rem;
-       padding: 0.75rem 1.5rem;
-       margin-top: 1rem;
-     }
-   }
    
    
