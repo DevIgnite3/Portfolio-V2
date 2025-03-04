@@ -2924,7 +2924,7 @@
  .s-header__logo {
      z-index: 3;
      position: absolute;
-     top: 5rem;
+     top: 0.5rem;
      left: 2rem;
  }
  
@@ -2938,7 +2938,7 @@
  
  .s-header__logo img {
      width: var(--logo-width);
-     margin: -4.5rem 0;
+   
      vertical-align: bottom;
  }
  
@@ -4740,23 +4740,6 @@
      text-align: center;       /* Centers the button horizontally */
      margin-top: 2rem;         /* Space above the button; adjust as needed */
    }
-   
-   
-   /* 1) For all small screens, lower the logo a bit */
-@media screen and (max-width: 900px) {
-    .s-header__logo {
-      top: 75%; /* or whatever offset you want */
-    }
-  }
-  
-  /* 2) Revert to the original top for iPhone/iOS */
-  @supports (-webkit-touch-callout: none) {
-    @media screen and (max-width: 900px) {
-      .s-header__logo {
-        top: 75%; /* your old “iPhone” position */
-      }
-    }
-  }
    
    
    
