@@ -4531,7 +4531,7 @@
  }
  
  /* Container for the flip cards */
- .services__list {
+ .our-services__list {
      max-width: 1080px;
      margin: 0 auto;
      margin-top: var(--vspace-2_5);
@@ -4543,7 +4543,7 @@
  }
  
  /* Remove default styling from service-item container */
- .services__list .service-item {
+ .our-services__list .service-item {
      padding: 0;
      background: transparent;
      border: none;
