@@ -4555,7 +4555,7 @@
 /* SECTION WRAPPER (Optional) */
 .our-services {
     background-color: hsl(0deg, 64.71%, 40%);
-    padding: var(--vspace-5) 0;
+    padding: var(--vspace-2) 0;
     color: white;
   }
   
@@ -4675,47 +4675,42 @@
   
   /* Back Face Paragraph */
   .flip-card-back p {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     line-height: 1.4;
     margin: 0;
     padding: 0 1.5rem;
     color: #333;
   }
   
-  /* ======================
-     MEDIA QUERIES
-     ====================== */
-  
-  /* 1) MOBILE (Under 600px) – 1 Card per Row */
   @media screen and (max-width: 600px) {
-  
-    /* Single column layout */
+
+    /* Force one column layout */
     .services-list .service-item {
       flex: 0 0 100%;
     }
   
-    /* Make sure card is tall enough on mobile */
+    /* Increase overall card height */
     .flip-card {
-      min-height: 320px; 
+      min-height: 300px !important;  /* increased from 420px */
     }
   
-    .flip-card-front h4 {
-      font-size: 1.3rem; 
-    }
-  
-    .flip-card-back p {
-      font-size: 1rem;
-    }
-  
-    /* Allow the card to auto-height if text is longer */
+    /* Let inner container auto-adjust */
     .flip-card-inner {
-      height: auto;
+      height: 300px !important;
     }
     .flip-card-front,
     .flip-card-back {
-      height: auto;
+      height: 300px !important;
+      padding: 1%.5;  /* increased padding so content doesn't stick to the edges */
+    }
+  
+    /* Increase text sizes so they fill the card more */
+    .flip-card-front h4,
+    .flip-card-back p {
+      font-size: 1.4rem;  /* increased from 1.3rem */
     }
   }
+  
   
   /* 2) DESKTOP (Above 600px) – 3 Cards per Row */
   @media screen and (min-width: 601px) {
@@ -4740,7 +4735,7 @@
       font-size: 1.6rem; 
     }
     .flip-card-back p {
-      font-size: 1.15rem;
+      font-size: 1.6rem;
     }
   }
   
