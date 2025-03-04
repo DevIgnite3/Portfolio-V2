@@ -2909,9 +2909,10 @@
      background-color: var(--color-body);
      border-bottom: 1px solid var(--color-border);
      width: 100%;
-     position: static;
+     position: sticky;
      top: 0;
      left: 0;
+     padding-top: 1.5rem; /* tweak as needed */
  }
  
  .s-header__block {
