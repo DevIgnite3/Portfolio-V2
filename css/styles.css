@@ -4660,32 +4660,8 @@
         .flip-card {
             min-height: 320px; /* Increase this to your preferred height */
         }
- 
-     .flip-card-front h4 {
-         font-size: 1.25rem;
-         /* <-- Smaller title on mobile; adjust as needed */
-     }
- 
-     .flip-card-back p {
-         font-size: 1.25rem;
-         /* <-- Smaller backside text on mobile; adjust as needed */
-         padding: 0 2.5rem;
-         /* <-- Less horizontal padding on mobile */
-     }
- 
-     /* Mobile Gap/Padding Between Cards */
-     .our-services__list .service-item {
-         /* Add extra vertical spacing between cards on mobile */
-         margin-bottom: 1rem;
-         /* <-- Adjust this value to increase or decrease spacing */
-     }
- 
-     .services-list .column {
-         margin-bottom: 1rem;
-         /* Adjust as needed */
-     }
- 
- }
+    }
+   
  
    /* =======================
     COOL ANIMATED BUTTON
