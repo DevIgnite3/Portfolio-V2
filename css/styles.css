@@ -1824,38 +1824,62 @@
  }
  
  #loader {
-     width             : var(--vspace-2);
-     height            : var(--vspace-2);
-     padding           : 0;
-     background-color  : white;
-     border-radius     : 100%;
-     -webkit-animation : sk-scaleout 1.0s infinite ease-in-out;
-     animation         : sk-scaleout 1.0s infinite ease-in-out;
- }
- 
- @-webkit-keyframes sk-scaleout {
-     0% {
-         -webkit-transform : scale(0);
-         transform         : scale(0);
-     }
- 
-     100% {
-         -webkit-transform : scale(1);
-         transform         : scale(1);
-         opacity           : 0;
-     }
- }
- 
- @keyframes sk-scaleout {
-     0% {
-         transform : scale(0);
-     }
- 
-     100% {
-         transform : scale(1);
-         opacity   : 0;
-     }
- }
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #ff8000, #ff4500, #a82424);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fire-animation 1.5s infinite ease-in-out alternate,
+               flicker 1.5s infinite;
+    box-shadow: 0px 0px 40px rgba(255, 69, 0, 0.8);
+}
+
+/* 🔥 Fire-like pulsing and flickering */
+@keyframes fire-animation {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 1;
+        box-shadow: 0px 0px 30px rgba(255, 69, 0, 0.8);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.9;
+        box-shadow: 0px 0px 50px rgba(255, 165, 0, 0.9);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 1;
+        box-shadow: 0px 0px 40px rgba(255, 69, 0, 0.8);
+    }
+}
+
+/* 🔥 Flickering effect to simulate fire movement */
+@keyframes flicker {
+    0% {
+        opacity: 0.9;
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        opacity: 0.7;
+        filter: hue-rotate(10deg);
+    }
+    50% {
+        opacity: 0.8;
+        filter: hue-rotate(-10deg);
+    }
+    75% {
+        opacity: 0.9;
+        filter: hue-rotate(5deg);
+    }
+    100% {
+        opacity: 1;
+        filter: hue-rotate(0deg);
+    }
+}
+
  
  
  /* ===================================================================
