@@ -3706,15 +3706,15 @@
  }
  
  .service-icon--product-design {
-     background-image: url(../images/icons/services/icon-product-design.svg);
+     background-image: url(../images/icons/services/custom+dev.svg);
  }
  
  .service-icon--branding {
-     background-image: url(../images/icons/services/icon-branding.svg);
+     background-image: url(../images/icons/services/mobileOptimisation.svg);
  }
  
  .service-icon--frontend {
-     background-image: url(../images/icons/services/icon-frontend.svg);
+     background-image: url(../images/icons/services/hosting+maintenance.svg);
  }
  
  .service-icon--research {
@@ -3722,7 +3722,7 @@
  }
  
  .service-icon--illustration {
-     background-image: url(../images/icons/services/icon-illustration.svg);
+     background-image: url(../images/icons/services/SEO.svg);
  }
  
  .service-icon--ecommerce {
