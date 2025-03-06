@@ -3240,7 +3240,7 @@
    *
    * ------------------------------------------------------------------- */
  .s-intro {
-     --text-huge: 7.6rem;
+     --text-huge: 5rem;
      --text-huge-line-height: 1.158;
      --text-huge-multiplier: 1;
      padding-top: calc(var(--header-height) + var(--vspace-5));
@@ -3257,12 +3257,6 @@
  }
  
  .s-intro__bg {
-    /* remove the background-image, repeat, position, size: */
-    /* background-image: radial-gradient(...), url(../images/intro-bg.gif);
-       background-repeat: no-repeat;
-       background-position: center;
-       background-size: cover; */
-
     width: 100%;
     position: absolute;
     top: calc(1.5 * var(--text-huge-line-height) * var(--text-huge) * var(--text-huge-multiplier));
