@@ -1294,7 +1294,7 @@
  /* links
    */
  a {
-     color: hsl(0, 0%, 100%);
+     color: hsl(0deg 64.71% 40%);
      transition: all 0.3s ease-in-out;
  }
  
@@ -1307,10 +1307,6 @@
  a:hover,
  a:active {
      outline: 0;
- }
-
- .what-we-can-do:hover {
-    color: #A82424;
  }
  
  /* headings
