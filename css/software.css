@@ -3403,7 +3403,7 @@
      display: block;
      width: 1px;
      height: var(--vspace-2);
-     background-color: hsl(0deg 64.71% 40%);
+     background-color: #2f81f7;
      transform: translateX(-50%);
      position: absolute;
      top: calc(var(--vspace-1) * -1);
