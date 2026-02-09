@@ -189,17 +189,20 @@
                             let val = +counter.dataset.counter;
                             let valSpan = counter.querySelectorAll('span')[0];
                             
-                            valSpan.innerText = '0';
+                            // Only animate if span exists and has a valid counter value
+                            if (valSpan && !isNaN(val) && val > 0) {
+                                valSpan.innerText = '0';
 
-                            setTimeout(function() {
-                                anime({
-                                    targets: valSpan,
-                                    innerText: [0, val],
-                                    easing: 'linear',
-                                    round: 1,
-                                    duration: 2000
-                                });
-                            }, i * 200);
+                                setTimeout(function() {
+                                    anime({
+                                        targets: valSpan,
+                                        innerText: [0, val],
+                                        easing: 'linear',
+                                        round: 1,
+                                        duration: 2000
+                                    });
+                                }, i * 200);
+                            }
                             
                         });
                     }
@@ -652,3 +655,120 @@ const ssAnimateButton = function() {
   window.addEventListener('scroll', ssAnimateButton);
   window.addEventListener('load', ssAnimateButton);
   
+
+/* Portfolio Carousel with Theme Switching
+ * -------------------------------------------------- */
+(function() {
+    'use strict';
+
+    const initPortfolioCarousel = function() {
+        const carousel = document.querySelector('.portfolio-carousel');
+        if (!carousel) return;
+
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const dots = carousel.querySelectorAll('.carousel-dot');
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+        
+        let currentSlide = 0;
+        let isAnimating = false;
+        const totalSlides = slides.length;
+
+        // Function to switch slides
+        const goToSlide = function(index) {
+            if (isAnimating || index === currentSlide) return;
+            isAnimating = true;
+
+            // Remove active class from current slide and dot
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+
+            // Update current slide index
+            currentSlide = index;
+
+            // Handle wrap-around
+            if (currentSlide < 0) currentSlide = totalSlides - 1;
+            if (currentSlide >= totalSlides) currentSlide = 0;
+
+            // Add active class to new slide and dot
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+
+            // Update carousel data attribute for potential external use
+            carousel.setAttribute('data-active-slide', currentSlide);
+
+            // Allow next animation after transition completes
+            setTimeout(() => {
+                isAnimating = false;
+            }, 800);
+        };
+
+        // Event listeners for arrows
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+        }
+
+        // Event listeners for dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            // Only handle if carousel is in viewport
+            const rect = carousel.getBoundingClientRect();
+            const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+            
+            if (isInViewport) {
+                if (e.key === 'ArrowLeft') {
+                    goToSlide(currentSlide - 1);
+                } else if (e.key === 'ArrowRight') {
+                    goToSlide(currentSlide + 1);
+                }
+            }
+        });
+
+        // Touch/Swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        const handleSwipe = function() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swiped left - go to next
+                    goToSlide(currentSlide + 1);
+                } else {
+                    // Swiped right - go to previous
+                    goToSlide(currentSlide - 1);
+                }
+            }
+        };
+
+        // Auto-play (optional - uncomment to enable)
+        // const autoPlayInterval = 6000;
+        // setInterval(() => goToSlide(currentSlide + 1), autoPlayInterval);
+    };
+
+    // Initialize on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPortfolioCarousel);
+    } else {
+        initPortfolioCarousel();
+    }
+})();

@@ -2965,6 +2965,7 @@
      color: rgba(255, 255, 255, 0.5);
      padding: 0 2.8rem;
      transition-property: color, background-color;
+     white-space: nowrap;
  }
  
  .s-header__nav a:focus,
@@ -3127,7 +3128,7 @@
    
    
  
- @media screen and (max-width: 900px) {
+ @media screen and (max-width: 1200px) {
      .s-header {
          display: block;
          border: none;
@@ -4508,7 +4509,7 @@
  
  /* Individual feature blocks */
  .why-choose-us__features .feature {
-     flex: 1 1 calc(50% - var(--gutter));
+     flex: 1 1 calc(33.333% - var(--gutter));
      background: #FFFFFF;
      /* Subtle overlay */
      padding: var(--vspace-1) var(--vspace-2);

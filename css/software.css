@@ -4916,3 +4916,421 @@ body.theme-software-alt .btn-ignite:hover {
     background: linear-gradient(90deg, #0f1115, #2f81f7);
     box-shadow: 0 0 12px rgba(47, 129, 247, 0.4);
 }
+
+
+/* ========================================================
+ * PORTFOLIO SECTION STYLES
+ * ======================================================== */
+
+/* Portfolio Section Base */
+.s-portfolio {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Portfolio Carousel */
+.portfolio-carousel {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Carousel Slides Container */
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Individual Slide */
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Slide Background */
+.slide-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transition: background 0.8s ease;
+}
+
+/* JRCE Theme - Professional Blue/Dark */
+.carousel-slide[data-theme="jrce"] .slide-background {
+    background: linear-gradient(135deg, #0a1628 0%, #1a365d 50%, #0d2137 100%);
+}
+
+.carousel-slide[data-theme="jrce"] .text-pretitle {
+    color: #4a9eff;
+}
+
+.carousel-slide[data-theme="jrce"] .text-display-title {
+    color: #ffffff;
+    text-shadow: 0 0 40px rgba(74, 158, 255, 0.3);
+}
+
+.carousel-slide[data-theme="jrce"] .portfolio-type {
+    color: #4a9eff;
+    border-color: #4a9eff;
+}
+
+.carousel-slide[data-theme="jrce"] .portfolio-features li::before {
+    color: #4a9eff;
+}
+
+.carousel-slide[data-theme="jrce"] .screenshot-overlay {
+    background: linear-gradient(135deg, rgba(74, 158, 255, 0.1) 0%, rgba(10, 22, 40, 0.3) 100%);
+}
+
+.carousel-slide[data-theme="jrce"] .screenshot-container {
+    box-shadow: 0 20px 60px rgba(74, 158, 255, 0.2), 0 0 100px rgba(74, 158, 255, 0.1);
+}
+
+/* Alleysway Theme - Energetic Orange/Dark */
+.carousel-slide[data-theme="alleysway"] .slide-background {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a0f0a 100%);
+}
+
+.carousel-slide[data-theme="alleysway"] .text-pretitle {
+    color: #ff6b35;
+}
+
+.carousel-slide[data-theme="alleysway"] .text-display-title {
+    color: #ffffff;
+    text-shadow: 0 0 40px rgba(255, 107, 53, 0.3);
+}
+
+.carousel-slide[data-theme="alleysway"] .portfolio-type {
+    color: #ff6b35;
+    border-color: #ff6b35;
+}
+
+.carousel-slide[data-theme="alleysway"] .portfolio-features li::before {
+    color: #ff6b35;
+}
+
+.carousel-slide[data-theme="alleysway"] .screenshot-overlay {
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(26, 26, 26, 0.3) 100%);
+}
+
+.carousel-slide[data-theme="alleysway"] .screenshot-container {
+    box-shadow: 0 20px 60px rgba(255, 107, 53, 0.2), 0 0 100px rgba(255, 107, 53, 0.1);
+}
+
+.carousel-slide[data-theme="alleysway"] .portfolio-link {
+    color: #ff6b35;
+}
+
+.carousel-slide[data-theme="alleysway"] .portfolio-link:hover {
+    color: #ff8c5a;
+}
+
+/* Slide Content */
+.slide-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 8rem 4rem;
+}
+
+/* Portfolio Showcase Layout */
+.portfolio-showcase {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.portfolio-info {
+    flex: 1;
+}
+
+.portfolio-screenshots {
+    flex: 1;
+}
+
+/* Portfolio Type Badge */
+.portfolio-type {
+    display: inline-block;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid;
+    border-radius: 30px;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+/* Portfolio Description */
+.portfolio-description {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2.5rem;
+}
+
+/* Portfolio Features List */
+.portfolio-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2.5rem 0;
+}
+
+.portfolio-features li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.6rem;
+}
+
+.portfolio-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Portfolio Link */
+.portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.6rem;
+}
+
+.portfolio-link:hover {
+    transform: translateX(8px);
+}
+
+/* Screenshot Container */
+.screenshot-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.screenshot-container:hover {
+    transform: scale(1.02) translateY(-5px);
+}
+
+.screenshot-main {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+.screenshot-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: 12px;
+}
+
+/* Carousel Navigation Arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.carousel-arrow svg {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    fill: white;
+    flex-shrink: 0;
+}
+
+.carousel-arrow:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-prev {
+    left: 2rem;
+}
+
+.carousel-next {
+    right: 2rem;
+}
+
+/* Carousel Dots */
+.carousel-dots {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    min-height: 12px;
+    max-width: 12px;
+    max-height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.carousel-dot:hover {
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-dot.active {
+    background: white;
+    border-color: white;
+    transform: scale(1.2);
+}
+
+/* Portfolio CTA */
+.portfolio-cta {
+    position: absolute;
+    bottom: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Lead Text for Process Section */
+.lead {
+    font-size: var(--text-md);
+    color: var(--color-text);
+    max-width: 700px;
+    margin: 1rem auto 0;
+    line-height: 1.7;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1100px) {
+    .portfolio-showcase {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .portfolio-info,
+    .portfolio-screenshots {
+        width: 100%;
+    }
+    
+    .slide-content {
+        padding: 6rem 3rem 10rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .slide-content {
+        padding: 5rem 2rem 12rem;
+    }
+    
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        max-width: 40px;
+        max-height: 40px;
+    }
+    
+    .carousel-arrow svg {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+        min-height: 20px;
+    }
+    
+    .carousel-prev {
+        left: 1rem;
+    }
+    
+    .carousel-next {
+        right: 1rem;
+    }
+    
+    .portfolio-description {
+        font-size: 1.6rem;
+    }
+    
+    .portfolio-cta {
+        bottom: 4rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .carousel-arrow {
+        display: none;
+    }
+    
+    .slide-content {
+        padding: 4rem 1.5rem 10rem;
+    }
+    
+    .portfolio-type {
+        font-size: 1rem;
+        padding: 0.4rem 1rem;
+    }
+}
