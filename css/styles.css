@@ -4797,3 +4797,44 @@
    
    
    
+
+/* ===================================================================
+ * # COOKIE BANNER
+ * ------------------------------------------------------------------- */
+.cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 600;
+    background: var(--color-body);
+    border-top: 1px solid var(--color-border);
+}
+
+.cookie-banner__inner {
+    padding-top: var(--vspace-0_75);
+    padding-bottom: var(--vspace-0_75);
+    align-items: center;
+}
+
+.cookie-banner__text {
+    margin: 0;
+    color: var(--color-text-dark);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+}
+
+.cookie-banner__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: var(--vspace-0_5);
+}
+
+@media screen and (min-width: 901px) {
+    .cookie-banner__actions {
+        margin-top: 0;
+    }
+}
+
+

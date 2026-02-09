@@ -5,7 +5,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <script>!function(key) {if (window.reb2b) return;window.reb2b = {loaded: true};var s = document.createElement("script");s.async = true;s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);}("5NRP9H7XV4O1");</script>
+  <script>
+    (function () {
+      var CONSENT_KEY = 'devignite_cookie_consent';
+
+      function getConsent() {
+        try {
+          return window.localStorage.getItem(CONSENT_KEY);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function loadReb2b() {
+        var key = "5NRP9H7XV4O1";
+        if (window.reb2b) return;
+        window.reb2b = { loaded: true };
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://ddwl4m2hdecbv.cloudfront.net/b/" + key + "/" + key + ".js.gz";
+        var first = document.getElementsByTagName("script")[0];
+        first.parentNode.insertBefore(s, first);
+      }
+
+      window.__loadReb2b = loadReb2b;
+
+      if (getConsent() === 'accepted') {
+        loadReb2b();
+      }
+    })();
+  </script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BJEKD6B131"></script>
@@ -789,10 +818,28 @@
 
   </div> <!-- end photoSwipe background -->
 
+  <!-- Cookie Banner
+    ================================================== -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-hidden="true" hidden>
+    <div class="row cookie-banner__inner">
+      <div class="column cookie-banner__content">
+        <p class="cookie-banner__text">
+          When you visit or log in to our website, cookies and similar technologies may be used by our online data partners or vendors to associate these activities with other personal information they or others have about you, including by association with your email. We (or service providers on our behalf) may then send communications and marketing to these email.
+        </p>
+      </div>
+
+      <div class="column cookie-banner__actions">
+        <button type="button" class="btn btn--small btn--stroke" data-cookie-decline>Decline</button>
+        <button type="button" class="btn btn--small btn--primary" data-cookie-accept>Accept</button>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Java Script
     ================================================== -->
   <script src="js/plugins.js"></script>
+  <script src="js/cookie-consent.js"></script>
   <script src="js/main.js"></script>
 
 
