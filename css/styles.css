@@ -4831,6 +4831,13 @@
     margin-top: var(--vspace-0_5);
 }
 
+.cookie-cmt__actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: var(--vspace-0_5);
+}
+
 @media screen and (min-width: 901px) {
     .cookie-banner__actions {
         margin-top: 0;

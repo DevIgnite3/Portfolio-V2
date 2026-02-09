@@ -21,6 +21,19 @@
     }
   }
 
+  function disableReb2b() {
+    removeReb2bScripts();
+    if (window.reb2b && typeof window.reb2b === 'object') {
+      window.reb2b.disabled = true;
+    }
+  }
+
+  function enableReb2b() {
+    if (typeof window.__loadReb2b === 'function') {
+      window.__loadReb2b();
+    }
+  }
+
   function removeReb2bScripts() {
     try {
       var scripts = document.querySelectorAll('script[src*="ddwl4m2hdecbv.cloudfront.net/b/"]');
@@ -64,29 +77,61 @@
         setStoredConsent(ACCEPTED);
         hideBanner(banner);
 
-        if (typeof window.__loadReb2b === 'function') {
-          window.__loadReb2b();
-        }
+        enableReb2b();
       });
     }
 
     if (declineBtn) {
       declineBtn.addEventListener('click', function () {
         setStoredConsent(DECLINED);
-        removeReb2bScripts();
-
-        if (window.reb2b && typeof window.reb2b === 'object') {
-          window.reb2b.disabled = true;
-        }
+        disableReb2b();
 
         hideBanner(banner);
       });
     }
   }
 
+  function renderConsentStatus(statusEl) {
+    var consent = getStoredConsent();
+    if (consent === ACCEPTED) statusEl.textContent = 'Accepted';
+    else if (consent === DECLINED) statusEl.textContent = 'Declined';
+    else statusEl.textContent = 'Not set';
+  }
+
+  function initCookiePreferencesPage() {
+    var cmtRoot = document.querySelector('[data-cookie-cmt]');
+    if (!cmtRoot) return;
+
+    var statusEl = document.getElementById('cookie-consent-status');
+    if (statusEl) renderConsentStatus(statusEl);
+
+    var acceptBtn = cmtRoot.querySelector('[data-cookie-cmt-accept]');
+    var declineBtn = cmtRoot.querySelector('[data-cookie-cmt-decline]');
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', function () {
+        setStoredConsent(ACCEPTED);
+        if (statusEl) renderConsentStatus(statusEl);
+        enableReb2b();
+      });
+    }
+
+    if (declineBtn) {
+      declineBtn.addEventListener('click', function () {
+        setStoredConsent(DECLINED);
+        if (statusEl) renderConsentStatus(statusEl);
+        disableReb2b();
+      });
+    }
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCookieBanner);
+    document.addEventListener('DOMContentLoaded', function () {
+      initCookieBanner();
+      initCookiePreferencesPage();
+    });
   } else {
     initCookieBanner();
+    initCookiePreferencesPage();
   }
 })();
