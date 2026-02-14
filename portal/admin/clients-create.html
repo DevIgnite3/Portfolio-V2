@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Create Client &bull; Admin &bull; DevIgnite Portal</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/portal/assets/css/portal.css" />
+</head>
+<body>
+  <div class="portal-wrap">
+
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a href="/portal/admin/dashboard.html" class="topbar__brand">
+          <img src="/images/logo.png" alt="DevIgnite" />
+          <span class="topbar__brand-tag">Admin</span>
+        </a>
+        <button class="topbar__toggle" aria-label="Menu" onclick="document.querySelector('.topbar__nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <nav class="topbar__nav">
+          <a href="/portal/admin/dashboard.html">Dashboard</a>
+          <a href="/portal/admin/clients-create.html" class="active">Clients</a>
+          <a href="/portal/admin/content-requests.html">Requests</a>
+          <a href="/portal/admin/invoices-generate.html">Invoices</a>
+          <a href="/portal/admin/contracts-upload.html">Contracts</a>
+          <a href="#" id="logout" class="nav-logout">Logout</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="page-title">
+        <h1>Create Client</h1>
+        <p class="subtitle">Set up a new client account with portal credentials.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div id="state"></div>
+
+          <form id="form" novalidate>
+            <h2 class="mt-0">Client Details</h2>
+
+            <label for="clientId">Client ID</label>
+            <input id="clientId" name="clientId" placeholder="e.g. acme-co" required />
+            <p class="small">Use a stable ID (letters, numbers, dashes). Used in document paths.</p>
+
+            <label for="clientName">Client Name</label>
+            <input id="clientName" name="clientName" placeholder="e.g. Acme Co" required />
+
+            <label for="primaryEmail">Primary Contact Email (optional)</label>
+            <input id="primaryEmail" name="primaryEmail" type="email" placeholder="billing@acme.co" />
+
+            <h2>Portal Login Credentials</h2>
+
+            <label for="userEmail">Login Email</label>
+            <input id="userEmail" name="userEmail" type="email" autocomplete="off" required />
+
+            <label for="password">Temporary Password</label>
+            <input id="password" name="password" type="text" autocomplete="off" required />
+            <p class="small">Share securely. Client can change it via &ldquo;Forgot password&rdquo;.</p>
+
+            <div class="actions">
+              <button id="submit" type="submit">Create Client</button>
+              <button id="clear" type="button" class="btn-secondary">Clear</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h2 class="mt-0">What to Send the Client</h2>
+          <p class="small">Portal link: <strong class="text-accent">/portal/login.html</strong></p>
+          <hr class="divider" />
+          <p class="small">After first login, recommend they use <strong>Forgot password</strong> to set their own password.</p>
+
+          <h2>What Gets Created</h2>
+          <ul class="small" style="padding-left:1.6rem;list-style:disc">
+            <li>Firestore: <strong>clients/{clientId}</strong></li>
+            <li>Auth user (email/password)</li>
+            <li>Firestore: <strong>users/{uid}</strong> linked to clientId</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer class="portal-footer">&copy; 2026 <a href="/">DevIgnite</a></footer>
+  </div>
+
+  <script type="module" src="/portal/assets/js/admin-clients-create.js"></script>
+</body>
+</html>

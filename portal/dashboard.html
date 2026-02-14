@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard &bull; DevIgnite Portal</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/portal/assets/css/portal.css" />
+</head>
+<body>
+  <div class="portal-wrap">
+
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a href="/portal/dashboard.html" class="topbar__brand">
+          <img src="/images/logo.png" alt="DevIgnite" />
+          <span class="topbar__brand-tag">Client</span>
+        </a>
+        <button class="topbar__toggle" aria-label="Menu" onclick="document.querySelector('.topbar__nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <nav class="topbar__nav">
+          <a href="/portal/dashboard.html" class="active">Dashboard</a>
+          <a href="/portal/upload.html">Content Requests</a>
+          <a href="/portal/contracts.html">Contracts</a>
+          <a href="/portal/invoices.html">Invoices</a>
+          <a href="#" id="logout" class="nav-logout">Logout</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="page-title">
+        <h1>Dashboard</h1>
+        <p class="subtitle">Welcome back. Here's an overview of your account.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h2 class="mt-0">Your Account</h2>
+          <div id="state"></div>
+
+          <div class="mt-1">
+            <p class="small mb-0">Signed in as</p>
+            <p id="email" style="font-weight:700;margin:0"></p>
+          </div>
+          <div class="mt-1">
+            <p class="small mb-0">Client</p>
+            <p id="clientName" style="font-weight:700;margin:0"></p>
+          </div>
+
+          <h2>Quick Links</h2>
+          <div class="quick-links">
+            <a href="/portal/upload.html" class="quick-link">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg>
+              Submit Request
+            </a>
+            <a href="/portal/contracts.html" class="quick-link">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              Contracts
+            </a>
+            <a href="/portal/invoices.html" class="quick-link">
+              <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Invoices
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="mt-0">Help</h2>
+          <p class="small">Use <strong>Submit Request</strong> to send text, images, or files for your project.</p>
+          <p class="small">Invoices and contracts are provided as downloadable PDFs.</p>
+          <hr class="divider" />
+          <p class="small">Need help? Email <a id="support" href="mailto:nic@devignite.com">nic@devignite.com</a></p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="portal-footer">&copy; 2026 <a href="/">DevIgnite</a></footer>
+  </div>
+
+  <script type="module" src="/portal/assets/js/dashboard.js"></script>
+</body>
+</html>

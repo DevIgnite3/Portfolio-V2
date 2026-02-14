@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f8f8;
+    margin: 0;
+    /* <-- important */
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #A82424;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.invoice {
+    background: white;
+    padding: 20px;
+    margin: 0 auto;
+    width: 800px;
+}
+
+.invoice h1,
+.invoice h2,
+.invoice h3 {
+    font-weight: bold;
+    color: #222;
+}
+
+.invoice p,
+.invoice td,
+.invoice th {
+    font-size: 14px;
+    line-height: 1.6;
+}

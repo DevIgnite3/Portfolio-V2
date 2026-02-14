@@ -1,0 +1,5 @@
+Payment Details:
+Bank: FNB
+Branch Number: 2767
+Account Holder: DevIgnite (PTY) LTD
+Account Number: 63154135933

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contracts &bull; DevIgnite Portal</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/portal/assets/css/portal.css" />
+</head>
+<body>
+  <div class="portal-wrap">
+
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a href="/portal/dashboard.html" class="topbar__brand">
+          <img src="/images/logo.png" alt="DevIgnite" />
+          <span class="topbar__brand-tag">Client</span>
+        </a>
+        <button class="topbar__toggle" aria-label="Menu" onclick="document.querySelector('.topbar__nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <nav class="topbar__nav">
+          <a href="/portal/dashboard.html">Dashboard</a>
+          <a href="/portal/upload.html">Content Requests</a>
+          <a href="/portal/contracts.html" class="active">Contracts</a>
+          <a href="/portal/invoices.html">Invoices</a>
+          <a href="#" id="logout" class="nav-logout">Logout</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="page-title">
+        <h1>Contracts</h1>
+        <p class="subtitle">View and download your signed contracts.</p>
+      </div>
+
+      <div class="card">
+        <div id="state"></div>
+        <ul id="list" class="list"></ul>
+      </div>
+    </main>
+
+    <footer class="portal-footer">&copy; 2026 <a href="/">DevIgnite</a></footer>
+  </div>
+
+  <script type="module" src="/portal/assets/js/contracts.js"></script>
+</body>
+</html>

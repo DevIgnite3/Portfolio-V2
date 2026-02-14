@@ -1,0 +1,6 @@
+# Local Firebase config for the portal (do not commit secrets)
+/assets/js/config.js
+
+# Optional local artifacts
+*.local
+*.log

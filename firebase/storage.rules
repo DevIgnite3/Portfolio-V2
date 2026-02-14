@@ -1,0 +1,65 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function tokenRole() {
+      return signedIn() ? request.auth.token.role : null;
+    }
+
+    function tokenClientId() {
+      return signedIn() ? request.auth.token.clientId : null;
+    }
+
+    function userDoc() {
+      return signedIn()
+        ? firestore.get(/databases/(default)/documents/users/$(request.auth.uid))
+        : null;
+    }
+
+    function role() {
+      return tokenRole() != null ? tokenRole() : (signedIn() ? userDoc().data.role : null);
+    }
+
+    function clientId() {
+      return tokenClientId() != null ? tokenClientId() : (signedIn() ? userDoc().data.clientId : null);
+    }
+
+    function isAdmin() {
+      return role() == 'admin';
+    }
+
+    function isClient() {
+      return role() == 'client';
+    }
+
+    function isOwnClient(targetClientId) {
+      return isClient() && clientId() == targetClientId;
+    }
+
+    // Client uploads for content requests
+    match /client-content/{targetClientId}/{requestId}/{filename} {
+      allow write: if isOwnClient(targetClientId);
+      allow read: if isAdmin() || isOwnClient(targetClientId);
+    }
+
+    // Invoices: admin writes, client reads own
+    match /invoices/{targetClientId}/{filename} {
+      allow write: if isAdmin();
+      allow read: if isAdmin() || isOwnClient(targetClientId);
+    }
+
+    // Contracts: admin writes, client reads own
+    match /contracts/{targetClientId}/{filename} {
+      allow write: if isAdmin();
+      allow read: if isAdmin() || isOwnClient(targetClientId);
+    }
+
+    // Default deny
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

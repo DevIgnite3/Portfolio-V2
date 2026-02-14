@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Content Requests &bull; Admin &bull; DevIgnite Portal</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/portal/assets/css/portal.css" />
+</head>
+<body>
+  <div class="portal-wrap">
+
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a href="/portal/admin/dashboard.html" class="topbar__brand">
+          <img src="/images/logo.png" alt="DevIgnite" />
+          <span class="topbar__brand-tag">Admin</span>
+        </a>
+        <button class="topbar__toggle" aria-label="Menu" onclick="document.querySelector('.topbar__nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <nav class="topbar__nav">
+          <a href="/portal/admin/dashboard.html">Dashboard</a>
+          <a href="/portal/admin/clients-create.html">Clients</a>
+          <a href="/portal/admin/content-requests.html" class="active">Requests</a>
+          <a href="/portal/admin/invoices-generate.html">Invoices</a>
+          <a href="/portal/admin/contracts-upload.html">Contracts</a>
+          <a href="#" id="logout" class="nav-logout">Logout</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="page-title">
+        <h1>Content Requests</h1>
+        <p class="subtitle">View and update client content requests.</p>
+      </div>
+
+      <div class="card">
+        <div class="row">
+          <div>
+            <label for="clientId">Filter by Client ID</label>
+            <input id="clientId" name="clientId" placeholder="e.g. acme-co" />
+          </div>
+          <div>
+            <label for="status">Filter by Status</label>
+            <select id="status" name="status">
+              <option value="">Any</option>
+              <option value="submitted">Submitted</option>
+              <option value="in_review">In Review</option>
+              <option value="needs_info">Needs Info</option>
+              <option value="approved">Approved</option>
+              <option value="delivered">Delivered</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="refresh" type="button">Refresh</button>
+        </div>
+      </div>
+
+      <div id="state" class="mt-2"></div>
+      <div id="list" class="mt-1"></div>
+    </main>
+
+    <footer class="portal-footer">&copy; 2026 <a href="/">DevIgnite</a></footer>
+  </div>
+
+  <script type="module" src="/portal/assets/js/admin-content-requests.js"></script>
+</body>
+</html>

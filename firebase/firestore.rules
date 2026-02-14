@@ -1,0 +1,111 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function tokenRole() {
+      return signedIn() ? request.auth.token.role : null;
+    }
+
+    function tokenClientId() {
+      return signedIn() ? request.auth.token.clientId : null;
+    }
+
+    function userDoc(uid) {
+      return get(/databases/$(database)/documents/users/$(uid));
+    }
+
+    function docRole() {
+      return signedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        ? userDoc(request.auth.uid).data.role
+        : null;
+    }
+
+    function docClientId() {
+      return signedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        ? userDoc(request.auth.uid).data.clientId
+        : null;
+    }
+
+    function isAdmin() {
+      return tokenRole() == 'admin' || docRole() == 'admin';
+    }
+
+    function isClient() {
+      return tokenRole() == 'client' || docRole() == 'client';
+    }
+
+    function isOwnUser(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function isOwnClient(targetClientId) {
+      return isClient() && ((tokenClientId() != null && tokenClientId() == targetClientId) || (docClientId() == targetClientId));
+    }
+
+    // ---- Users ----
+    match /users/{uid} {
+      allow read: if isOwnUser(uid) || isAdmin();
+      allow write: if isAdmin();
+    }
+
+    // ---- Collection Group (Admin) ----
+    // Aggregation queries (getCountFromServer) and collectionGroup queries are evaluated
+    // against a recursive path match. Admins may read these across the database.
+    match /{path=**}/contentRequests/{requestId} {
+      allow read: if isAdmin();
+    }
+
+    match /{path=**}/invoices/{invoiceId} {
+      allow read: if isAdmin();
+    }
+
+    match /{path=**}/contracts/{contractId} {
+      allow read: if isAdmin();
+    }
+
+    // ---- Clients root docs ----
+    match /clients/{targetClientId} {
+      allow read: if isAdmin() || isOwnClient(targetClientId);
+      allow write: if isAdmin();
+
+      // ---- Content Requests ----
+      match /contentRequests/{requestId} {
+        allow create: if isAdmin() || (
+          isOwnClient(targetClientId)
+          && request.resource.data.createdByUid == request.auth.uid
+          && request.resource.data.clientId == targetClientId
+          && request.resource.data.status == 'submitted'
+        );
+
+        allow read: if isAdmin() || (
+          isOwnClient(targetClientId)
+          && resource.data.createdByUid == request.auth.uid
+        );
+
+        allow update: if isAdmin() || (
+          isOwnClient(targetClientId)
+          && resource.data.createdByUid == request.auth.uid
+          // Clients may only update their own notes (admin updates everything).
+          && request.resource.data.diff(resource.data).changedKeys().hasOnly(['clientNotes', 'updatedAt'])
+        );
+
+        allow delete: if isAdmin();
+      }
+
+      // ---- Invoices ----
+      match /invoices/{invoiceId} {
+        allow read: if isAdmin() || isOwnClient(targetClientId);
+        allow write: if isAdmin();
+      }
+
+      // ---- Contracts ----
+      match /contracts/{contractId} {
+        allow read: if isAdmin() || isOwnClient(targetClientId);
+        allow write: if isAdmin();
+      }
+    }
+  }
+}

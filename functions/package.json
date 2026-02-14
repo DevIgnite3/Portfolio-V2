@@ -1,0 +1,15 @@
+{
+  "name": "devignite-portal-functions",
+  "private": true,
+  "engines": {
+    "node": "20"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "echo lint skipped"
+  },
+  "dependencies": {
+    "firebase-admin": "^12.3.1",
+    "firebase-functions": "^5.1.0"
+  }
+}
