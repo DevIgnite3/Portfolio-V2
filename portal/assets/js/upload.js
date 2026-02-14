@@ -11,7 +11,7 @@ const logoutEl = document.getElementById("logout");
 
 const form = document.getElementById("form");
 const submitBtn = document.getElementById("submit");
-const resetBtn = document.getElementById("reset");
+const resetBtn = document.getElementById("resetBtn");
 
 const uploadProgressWrap = document.getElementById("uploadProgress");
 const bar = document.getElementById("bar");
