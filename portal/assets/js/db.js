@@ -281,6 +281,25 @@ export async function adminBackfillPdfUrls() {
   return updated;
 }
 
+export async function adminListClientContentRequests(clientId, { limitCount = 100 } = {}) {
+  const { db, mod } = await getFirebase();
+  const { collection, query, orderBy, limit, getDocs } = mod.fsMod;
+  const q = query(
+    collection(db, "clients", clientId, "contentRequests"),
+    orderBy("createdAt", "desc"),
+    limit(limitCount)
+  );
+  const snap = await getDocs(q);
+  return snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+}
+
+export async function adminUpdateInvoice({ clientId, invoiceId, patch }) {
+  const { db, mod } = await getFirebase();
+  const { doc, updateDoc } = mod.fsMod;
+  const ref = doc(db, "clients", clientId, "invoices", invoiceId);
+  await updateDoc(ref, { ...patch });
+}
+
 export async function adminStats() {
   const { db, mod } = await getFirebase();
   const { collectionGroup, query, where, getCountFromServer, Timestamp } = mod.fsMod;

@@ -767,6 +767,109 @@ button:disabled, .btn:disabled {
   margin: 0 auto 2.4rem;
 }
 
+/* ===================== CLIENT TILES ===================== */
+.client-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+.client-tile {
+  display: block;
+  padding: 1.6rem;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: var(--text);
+  transition: all var(--transition);
+  animation: fadeInUp .4s ease-out both;
+}
+.client-tile:hover {
+  border-color: var(--border-accent);
+  background: rgba(168,36,36,.06);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+  text-decoration: none;
+  color: var(--text);
+}
+.client-tile__name {
+  font-family: var(--font-2);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: .3rem;
+}
+.client-tile__id {
+  font-size: 1.15rem;
+  color: var(--accent-light);
+  font-weight: 600;
+  letter-spacing: .4px;
+}
+.client-tile__email {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-top: .3rem;
+}
+.client-tile__date {
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  margin-top: .5rem;
+}
+
+/* ===================== TABS ===================== */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0;
+  overflow-x: auto;
+  animation: fadeIn .4s ease-out both;
+}
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-2);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 1rem 1.6rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+  box-shadow: none;
+}
+.tab:hover {
+  color: var(--text);
+  background: rgba(255,255,255,.03);
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+.tab.active {
+  color: var(--accent-light);
+  border-bottom-color: var(--accent-light);
+  background: transparent;
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+.tab svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+.tab-panel {
+  animation: fadeIn .3s ease-out both;
+}
+
 /* ===================== DIVIDER ===================== */
 .divider {
   border: none;

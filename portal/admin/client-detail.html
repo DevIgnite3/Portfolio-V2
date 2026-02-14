@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client Detail &bull; Admin &bull; DevIgnite Portal</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="stylesheet" href="/portal/assets/css/portal.css" />
+</head>
+<body>
+  <div class="portal-wrap">
+
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a href="/portal/admin/dashboard.html" class="topbar__brand">
+          <img src="/images/logo.png" alt="DevIgnite" />
+          <span class="topbar__brand-tag">Admin</span>
+        </a>
+        <button class="topbar__toggle" aria-label="Menu" onclick="document.querySelector('.topbar__nav').classList.toggle('open')">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <nav class="topbar__nav">
+          <a href="/portal/admin/dashboard.html">Dashboard</a>
+          <a href="/portal/admin/clients-create.html" class="active">Clients</a>
+          <a href="/portal/admin/content-requests.html">Requests</a>
+          <a href="/portal/admin/invoices-generate.html">Invoices</a>
+          <a href="/portal/admin/contracts-upload.html">Contracts</a>
+          <a href="#" id="logout" class="nav-logout">Logout</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="page-title">
+        <h1 id="pageHeading">Client Dashboard</h1>
+        <p class="subtitle" id="pageSubtitle">Loading client details&hellip;</p>
+      </div>
+
+      <div id="state"></div>
+
+      <!-- Client Info Card -->
+      <div id="clientInfo" class="card mb-1" hidden>
+        <div class="flex-between" style="flex-wrap:wrap;gap:1rem">
+          <div>
+            <h2 class="mt-0 mb-0" id="clientName"></h2>
+            <p class="small" id="clientEmail"></p>
+          </div>
+          <div>
+            <span class="badge badge--active" id="clientIdBadge"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div id="tabsWrap" class="tabs" hidden>
+        <button class="tab active" data-tab="requests">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Content Requests
+        </button>
+        <button class="tab" data-tab="invoices">
+          <svg viewBox="0 0 24 24" width="16" height="16"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          Invoices
+        </button>
+        <button class="tab" data-tab="contracts">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Contracts
+        </button>
+      </div>
+
+      <!-- Content Requests Panel -->
+      <section id="panel-requests" class="tab-panel">
+        <div id="requestsState"></div>
+        <div id="requestsList"></div>
+      </section>
+
+      <!-- Invoices Panel -->
+      <section id="panel-invoices" class="tab-panel" hidden>
+        <div id="invoicesState"></div>
+        <div id="invoicesList"></div>
+      </section>
+
+      <!-- Contracts Panel -->
+      <section id="panel-contracts" class="tab-panel" hidden>
+        <div id="contractsState"></div>
+        <div id="contractsList"></div>
+      </section>
+
+    </main>
+
+    <footer class="portal-footer">&copy; 2026 <a href="/">DevIgnite</a></footer>
+  </div>
+
+  <script type="module" src="/portal/assets/js/admin-client-detail.js"></script>
+</body>
+</html>

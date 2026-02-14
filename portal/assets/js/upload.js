@@ -3,6 +3,34 @@ import { logout } from "./auth.js";
 import { createContentRequest, listClientContentRequests } from "./db.js";
 import { renderNotice, requireNonEmpty, fmtDate, setText, friendlyErrorMessage } from "./ui.js";
 import { getFirebase } from "./firebase.js";
+import { emailjsConfig } from "./emailjs-config.js";
+
+/* ── EmailJS notification ── */
+if (window.emailjs) {
+  window.emailjs.init(emailjsConfig.publicKey);
+}
+
+async function notifyAdmin({ clientId, projectName, pageOrSection, requestType, details, priority, fileCount }) {
+  if (!window.emailjs) {
+    console.warn("EmailJS SDK not loaded – skipping admin notification.");
+    return;
+  }
+  try {
+    await window.emailjs.send(emailjsConfig.serviceId, emailjsConfig.contentRequestTemplateId, {
+      client_id: clientId,
+      project_name: projectName,
+      page_or_section: pageOrSection,
+      request_type: requestType,
+      details: details,
+      priority: priority,
+      file_count: String(fileCount),
+      submitted_at: new Date().toLocaleString(),
+    });
+  } catch (err) {
+    // Non-critical – log but don't block the user
+    console.error("EmailJS notification failed:", err);
+  }
+}
 
 const state = document.getElementById("state");
 const listState = document.getElementById("listState");
@@ -149,6 +177,18 @@ await guardPage({
         );
 
         renderNotice(state, { type: "ok", title: "Submitted", message: "Your request has been received." });
+
+        // Send admin email notification (fire-and-forget)
+        notifyAdmin({
+          clientId: profile.clientId,
+          projectName,
+          pageOrSection,
+          requestType,
+          details,
+          priority,
+          fileCount: files.length,
+        });
+
         form.reset();
         clearProgress();
         await loadList(profile.clientId, profile.uid);

@@ -1,6 +1,9 @@
 # Local Firebase config for the portal (do not commit secrets)
 /assets/js/config.js
 
+# EmailJS credentials (do not commit secrets)
+/assets/js/emailjs-config.js
+
 # Optional local artifacts
 *.local
 *.log

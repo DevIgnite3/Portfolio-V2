@@ -1,0 +1,123 @@
+<!--
+  ============================================================
+  EmailJS Template: Client Content-Request Notification
+  ============================================================
+  Template ID:  template_rqjui5s
+  Service ID:   service_6mitp6f
+
+  SETUP IN EMAILJS DASHBOARD
+  ──────────────────────────
+  1. Go to https://dashboard.emailjs.com → Email Templates
+  2. Open template_rqjui5s (or create a new one)
+  3. Set the Subject line to something like:
+       🔔 New Content Request from {{client_id}} – {{project_name}}
+  4. Set "To Email" to your admin email address
+  5. Paste the HTML below into the template body (Content tab → HTML)
+  6. Save
+
+  AVAILABLE VARIABLES (sent by upload.js)
+  ────────────────────────────────────────
+  {{client_id}}        – The client's ID (e.g. "acme-co")
+  {{project_name}}     – Project name entered by the client
+  {{page_or_section}}  – Page or section the request applies to
+  {{request_type}}     – text | image | files | other
+  {{details}}          – Free-text description from the client
+  {{priority}}         – low | normal | high
+  {{file_count}}       – Number of files uploaded (0 if none)
+  {{submitted_at}}     – Timestamp string when the request was sent
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>New Content Request</title>
+</head>
+<body style="margin:0;padding:0;background-color:#101112;font-family:'Inter','Segoe UI',Helvetica,Arial,sans-serif;color:#e8e8e8;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#101112;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#18191c;border-radius:12px;border:1px solid rgba(255,255,255,0.07);overflow:hidden;">
+
+          <!-- Header -->
+          <tr>
+            <td style="padding:24px 32px;background:linear-gradient(135deg,hsl(0deg 64.71% 40%),hsl(16deg 100% 55%));text-align:center;">
+              <h1 style="margin:0;font-size:22px;font-weight:700;color:#ffffff;font-family:'Manrope','Inter',sans-serif;">
+                🔔 New Content Request
+              </h1>
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:28px 32px;">
+
+              <p style="margin:0 0 20px;font-size:15px;color:#8a8a8b;">
+                A client has submitted a new content request. Here are the details:
+              </p>
+
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:14px;">
+                <tr>
+                  <td style="padding:8px 0;color:#8a8a8b;width:140px;vertical-align:top;">Client ID</td>
+                  <td style="padding:8px 0;color:#e8e8e8;font-weight:600;">{{client_id}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 0;color:#8a8a8b;vertical-align:top;">Project</td>
+                  <td style="padding:8px 0;color:#e8e8e8;font-weight:600;">{{project_name}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 0;color:#8a8a8b;vertical-align:top;">Page / Section</td>
+                  <td style="padding:8px 0;color:#e8e8e8;">{{page_or_section}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 0;color:#8a8a8b;vertical-align:top;">Request Type</td>
+                  <td style="padding:8px 0;color:#e8e8e8;">{{request_type}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 0;color:#8a8a8b;vertical-align:top;">Priority</td>
+                  <td style="padding:8px 0;color:#e8e8e8;font-weight:600;">{{priority}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 0;color:#8a8a8b;vertical-align:top;">Files Uploaded</td>
+                  <td style="padding:8px 0;color:#e8e8e8;">{{file_count}}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 0;color:#8a8a8b;vertical-align:top;">Submitted At</td>
+                  <td style="padding:8px 0;color:#e8e8e8;">{{submitted_at}}</td>
+                </tr>
+              </table>
+
+              <!-- Details block -->
+              <div style="margin:20px 0 0;padding:16px;background-color:rgba(10,11,11,0.65);border:1px solid rgba(255,255,255,0.07);border-radius:8px;">
+                <p style="margin:0 0 6px;font-size:12px;text-transform:uppercase;letter-spacing:0.6px;color:#8a8a8b;font-weight:600;">Details</p>
+                <p style="margin:0;font-size:14px;color:#e8e8e8;line-height:1.6;white-space:pre-wrap;">{{details}}</p>
+              </div>
+
+              <!-- CTA -->
+              <div style="margin:28px 0 0;text-align:center;">
+                <a href="https://devignite.co.za/portal/admin/content-requests.html"
+                   style="display:inline-block;padding:12px 28px;background:linear-gradient(135deg,hsl(0deg 64.71% 40%),hsl(16deg 100% 55%));color:#ffffff;font-weight:700;font-size:14px;text-decoration:none;border-radius:8px;">
+                  View in Admin Portal
+                </a>
+              </div>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="padding:20px 32px;border-top:1px solid rgba(255,255,255,0.07);text-align:center;">
+              <p style="margin:0;font-size:12px;color:#5b5b5c;">
+                &copy; 2026 DevIgnite &bull; <a href="https://devignite.co.za" style="color:#8a8a8b;text-decoration:none;">devignite.co.za</a>
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
