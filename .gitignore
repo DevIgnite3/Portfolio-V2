@@ -67,3 +67,4 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+DO_NOT_UPLOAD_DIRECTADMIN.txt
